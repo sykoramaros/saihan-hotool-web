@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marosh Sykora</title>
+    <link rel="stylesheet" href="./scss/custom.css" />
+    <!-- <style>
+      body * {
+        border: 1px solid #0000ff5f;
+      }
+    </style> -->
+  </head>
+  <!-- OBRAZEK V POZADI -->
+  <body>
+    <!-- 1) SEKCE HOME -->
+    <!-- ZACATEK FORMULARE -->
+    <section
+      style="
+        background-image: url(/img/Snapseed.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        /* background-attachment: fixed; */
+        margin: 0;
+        width: auto;
+        height: 100%;
+      "
+    >
+      <div class="pb-5">
+        <h1 class="text-center display-1">Saihan hotool</h1>
+        <h2 class="text-center text-uppercase">Countryside</h2>
+        <div
+          class="container w-sm-75 w-md-50 rounded-4"
+          style="
+            background-color: #0000002b;
+            margin-top: 75px;
+            margin-bottom: 40px;
+          "
+        >
+          <div class="row">
+            <div class="col-12 fs-4" style="color: white">
+              <h2 class="display-3 darkGreen" style="text-align: center">
+                Rychla rezervace
+              </h2>
+              <form class="row g-3">
+                <div class="text-center">
+                  <label for="inputName" class="form-label">Name:</label>
+                  <input type="text" class="form-control" id="inputName" />
+                </div>
+                <div class="text-center">
+                  <label for="inputSurname" class="form-label">Surname:</label>
+                  <input type="text" class="form-control" id="inputSurname" />
+                </div>
+                <div class="text-center">
+                  <label for="inputEmail" class="form-label">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Zadejte svuj email"
+                  />
+                </div>
+                <div class="text-center">
+                  <label for="inputPhoneNumber" class="form-label"
+                    >Telefonni cislo:</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="inputPhoneNumber"
+                    placeholder="Phone number"
+                  />
+                </div>
+                <div class="row">
+                  <div
+                    class="text-center col-12 col-md-4"
+                    style="align-self: self-end"
+                  >
+                    <label for="numberOfGuests" class="form-label text-center"
+                      >Number of guests:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="numberOfGuests"
+                    />
+                  </div>
+                  <!-- style="align-self: self-end; -->
+                  <!-- PRIPEVNENI PRVKU KE SPODNI HRANICI (LISTE) -->
+                  <div
+                    class="text-center col-12 col-md-4"
+                    style="align-self: self-end"
+                  >
+                    <label for="dateOfArrival" class="form-label text-center"
+                      >Date of arrival:</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateOfArrival"
+                    />
+                  </div>
+                  <div
+                    class="text-center col-12 col-md-4"
+                    style="align-self: self-end"
+                  >
+                    <label for="dateOfDeparture" class="form-label text-center"
+                      >Date of departure:</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateOfDeparture"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <button type="submit" class="btn brightGreen-bg w-100">
+                    Rezervovat nyni
+                  </button>
+                </div>
+                <div class="col-6">
+                  <!-- ZACATEK SPINAC -->
+                  <!-- Button trigger modal -->
+                  <button
+                    type="button"
+                    class="btn w-100 yellow-bg"
+                    data-bs-toggle="modal"
+                    data-bs-target="#youtube"
+                  >
+                    Virtualni prohlidka
+                  </button>
+                  <!-- KONEC SPINAC -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- KONEC FORMULARE -->
+
+    <!-- ZACATEK NAVBARU -->
+    <nav
+      class="navbar sticky-top navbar-expand-sm yellow-bg shadow-sm p-2 mb-5"
+    >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col mt-2">
+            <a class="navbar-brand lightGrey fs-3" href="#">Saihan hotool</a>
+          </div>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- HORNI VYBER -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto" style="margin-left: auto">
+            <li class="nav-item">
+              <a class="nav-link lightGrey" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- KONEC NAVBARU -->
+    <section class="container lightGreen-bg rounded-5 pt-4">
+      <!-- ZACATEK HISTORY OBRAZEK -->
+      <section style="margin-bottom: 20px">
+        <div class="container-xl">
+          <div class="row">
+            <!-- zacatek odstavec -->
+            <div class="col-12 col-md-3 darkGreen">
+              <p class="">
+                Lorem ipsum dolor sit amet.<span class="fs-1">
+                  Lorem, ipsum dolor. </span
+                >Lorem ipsum dolor sit. Lorem ipsum, dolor sit amet consectetur
+                adipisicing elit. Recusandae iste, aperiam tenetur rerum
+                corporis delectus minima neque
+              </p>
+            </div>
+
+            <div class="col-12 col-md-3 darkGreen">
+              <p class="">
+                Lorem ipsum dolor sit amet.<span class="fs-1">
+                  Lorem, ipsum dolor. </span
+                >Lorem ipsum dolor sit. Lorem ipsum, dolor sit amet consectetur
+                adipisicing elit. Recusandae iste, aperiam tenetur rerum
+                corporis delectus minima neque
+              </p>
+            </div>
+            <!-- konec odstavec -->
+            <!-- zacatek obrazek -->
+            <div class="d-none d-sm-block col-sm-12 col-md-6">
+              <img
+                src="./img/yurtsHistory.jpg"
+                style="width: 100%; margin: auto"
+                class=""
+              />
+            </div>
+            <!-- konec obrazek -->
+          </div>
+        </div>
+      </section>
+      <!-- KONEC HISTORY OBRAZEK -->
+
+      <!-- ZACATEK CENIKU CARDS -->
+      <section>
+        <div style="margin: 45px 0 45px 0">
+          <div class="row g-4">
+            <div class="col col-sm-12 col-md-6 col-lg-3 align-self-end">
+              <div class="card">
+                <img
+                  src="./img/kazakh.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Kazassti jezdci na konich s orly na rukach"
+                />
+                <div class="card-body">
+                  <h5 class="card-title text-center">Economy</h5>
+                  <table class="text-center col-12">
+                    <thead>
+                      <tr>
+                        <th>Pers.</th>
+                        <th>Night</th>
+                        <th>Week</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <button type="submit" class="btn middleGreen-bg white">
+                      Book
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-3 align-self-end">
+              <div class="card">
+                <img
+                  src="./img/nomads.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Nomadi cestujici s konem a velbloudy"
+                />
+                <div class="card-body">
+                  <h5 class="card-title text-center">Standard</h5>
+                  <table class="text-center col-12">
+                    <thead>
+                      <tr>
+                        <th>Pers.</th>
+                        <th>Night</th>
+                        <th>Week</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <button type="submit" class="btn middleGreen-bg">
+                      Book
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-3 align-self-end">
+              <div class="card">
+                <img
+                  src="./img/irbis.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Irbis"
+                />
+                <div class="card-body">
+                  <h5 class="card-title text-center">Deluxe</h5>
+                  <table class="text-center col-12">
+                    <thead>
+                      <tr>
+                        <th>Pers.</th>
+                        <th>Night</th>
+                        <th>Week</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <button type="submit" class="btn middleGreen-bg">
+                      Book
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-sm-12 col-md-6 col-lg-3 align-self-end">
+              <div class="card">
+                <img
+                  src="./img/konici.jpg"
+                  class="card-img-top img-fluid"
+                  alt="Stado koni na louce"
+                />
+                <div class="card-body">
+                  <h5 class="card-title text-center">Superior</h5>
+                  <table class="text-center col-12">
+                    <thead>
+                      <tr>
+                        <th>Pers.</th>
+                        <th>Night</th>
+                        <th>Week</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>10$</td>
+                        <td>40$</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                    <button type="submit" class="btn middleGreen-bg">
+                      Book
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- KONEC CENIKU CARDS -->
+
+      <!-- ZACATEK CAROUSEL -->
+      <section class="pb-5 m-3">
+        <div class="container">
+          <div
+            id="carouselExampleCaptions"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <h1 class="text-center">Gallery</h1>
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+            </div>
+            <div class="carousel-inner rounded-4">
+              <div class="carousel-item active">
+                <img
+                  src="./img/kazakh.jpg"
+                  class="d-block w-100"
+                  alt="Kazassti jezdci na konich s orly na rukach"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="fs-2">Economy</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./img/nomads.jpg"
+                  class="d-block w-100"
+                  alt="Nomadi cestujici s konem a velbloudy"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="fs-2">Standart</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./img/konici.jpg"
+                  class="d-block w-100"
+                  alt="Stado koni na louce"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="fs-2">Deluxe</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./img/irbis.jpg" class="d-block w-100" alt="Irbis" />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="fs-2">Superior</h5>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- KONEC CAROUSEL -->
+    </section>
+
+    <!-- ZACATEK FOOTRU -->
+    <section>
+      <footer id="mdb-footer" class="middleGreen-bg" style="color: white">
+        <div class="container-fluid">
+          <h4 class="text-center display-5 py-3">Contact us</h4>
+          <div class="row">
+            <div class="col-12 col-md-4 pb-4 d-flex justify-content-center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21648.75390787967!2d106.15615886333738!3d50.277169392485845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da49d5f4694adb3%3A0x985cb4a00cf01606!2z06jRgNCz06nQvSDQodGN0LvRjdC90LPRjSDQkNC80YDQsNC70YI!5e0!3m2!1scs!2scz!4v1722420210590!5m2!1scs!2scz"
+                width="100%"
+                height="auto"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="rounded-4 mx-4"
+              ></iframe>
+            </div>
+
+            <div class="col-12 col-md-4 pb-4">
+              <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                  <img src="./img/facebook.svg" style="width: 70px" class="" />
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                  <img src="./img/twitter.svg" style="width: 70px" class="" />
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                  <img src="./img/instagram.svg" style="width: 70px" class="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 pb-4 d-flex justify-content-center">
+              <table class="fs-3">
+                <tr>
+                  <td class="text-center">📞</td>
+                </tr>
+                <tr>
+                  <td class="text-center">+976 000 000</td>
+                </tr>
+                <tr>
+                  <td class="text-center">✉️</td>
+                </tr>
+                <tr>
+                  <td class="text-center">nomads@mongolia.mn</td>
+                </tr>
+                <tr>
+                  <td class="text-center">🏠</td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    Sükhbaatar, Selenge 43133, Mongolsko
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- KONEC FOOTRU -->
+
+    <!-- ZACATEK MODAL -->
+    <div class="modal modal-lg" tabindex="-1" id="youtube">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Exploring...</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/Q_ME77BeKGE?si=uZbxPzlO92bIo2Z4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KONEC MODAL -->
+
+    <!-- SKRIPT BOOTSTRAP -->
+    <script src="./bootstrap.bundle.min.js"></script>
+    <!-- ^^^^^ -->
+    <script>
+      //navbar
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(".nav-link")
+        const navbarMenu = document.querySelector("#navbarSupportedContent")
+        const bsCollapse = new bootstrap.Collapse(navbarMenu, {
+          toggle: false,
+        })
+
+        const collapseNavbar = () => {
+          if (window.innerWidth < 992) {
+            bsCollapse.hide()
+          }
+        }
+        navLinks.forEach((link) =>
+          link.addEventListener("click", collapseNavbar)
+        )
+
+        //modal
+        document.querySelectorAll(".modal").forEach(function (modal) {
+          modal.addEventListener("hide.bs.modal", function () {
+            const memory = this.innerHTML
+            this.innerHTML = memory
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
