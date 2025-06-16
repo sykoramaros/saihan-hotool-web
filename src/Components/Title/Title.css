@@ -1,0 +1,9 @@
+.title-container {
+  background-image: linear-gradient(
+    to bottom,
+    #cccccc 0%,
+    #cccccc 20%,
+    #dbdbdb 50%,
+    #ffffff 98%
+  );
+}

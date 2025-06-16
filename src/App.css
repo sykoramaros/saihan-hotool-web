@@ -1,0 +1,1090 @@
+/* :root {
+  --golden-ratio: 1.618;
+
+  --font-ratio: 0.3;
+  --font-sm-ratio: 0.3;
+  --font-md-ratio: 0.4;
+  --font-lg-ratio: 0.5;
+  --font-xl-ratio: 0.6;
+  --font-xxl-ratio: 0.7;
+} */
+
+html {
+  font-size: 16px;
+}
+
+/* html * {
+  border: 1px solid skyblue;
+} */
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraLightItalic.ttf");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Thin.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-ThinItalic.ttf");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-MediumItalic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-SemiBoldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tommorow";
+  src: url("/public/fonts/Tomorrow/Tomorrow-BlackItalic.ttf");
+  font-weight: 900;
+  font-style: italic;
+}
+
+body {
+  font-family: "Tommorow";
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.green {
+  color: #4d8825;
+}
+
+.bg-green {
+  background-color: #4d8825;
+}
+
+.gray {
+  color: #656565;
+}
+
+.bg-gray {
+  background-color: #656565;
+}
+
+.light-gray {
+  color: #cccccc;
+}
+
+.bg-light-gray {
+  background-color: #cccccc;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.black {
+  color: #000000;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+/* Fibonacci MINIMALNÍ GLOBALNI responzivita */
+/* .font-55 {
+  font-size: calc(55rem * var(--font-ratio));
+}
+
+.font-34 {
+  font-size: calc(34rem * var(--font-ratio));
+}
+
+.font-21 {
+  font-size: calc(21rem * var(--font-ratio));
+}
+
+.font-13 {
+  font-size: calc(13rem * var(--font-ratio));
+}
+
+.font-8 {
+  font-size: calc(8rem * var(--font-ratio));
+}
+
+.font-5 {
+  font-size: calc(5rem * var(--font-ratio));
+}
+
+.font-3 {
+  font-size: calc(3rem * var(--font-ratio));
+}
+
+.font-2 {
+  font-size: calc(2rem * var(--font-ratio));
+}
+
+.font-1 {
+  font-size: calc(1rem * var(--font-ratio));
+}
+
+.h-55 {
+  height: 55rem;
+}
+
+.h-34 {
+  height: 34rem;
+}
+
+.h-21 {
+  height: 21rem;
+}
+
+.h-13 {
+  height: 13rem;
+}
+
+.h-8 {
+  height: 8rem;
+}
+
+.h-5 {
+  height: 5rem;
+}
+
+.h-3 {
+  height: 3rem;
+}
+
+.h-2 {
+  height: 2rem;
+}
+
+.h-1 {
+  height: 1rem;
+}
+
+.w-55 {
+  width: 55rem;
+}
+
+.w-34 {
+  width: 34rem;
+}
+
+.w-21 {
+  width: 21rem;
+}
+
+.w-13 {
+  width: 13rem;
+}
+
+.w-8 {
+  width: 8rem;
+}
+
+.w-5 {
+  width: 5rem;
+}
+
+.w-3 {
+  width: 3rem;
+}
+
+.w-2 {
+  width: 2rem;
+}
+
+.w-1 {
+  width: 1rem;
+}
+
+.m-55 {
+  margin: 55rem;
+}
+
+.m-34 {
+  margin: 34rem;
+}
+
+.m-21 {
+  margin: 21rem;
+}
+
+.m-13 {
+  margin: 13rem;
+}
+
+.m-8 {
+  margin: 8rem;
+}
+
+.m-5 {
+  margin: 5rem !important;
+}
+
+.m-3 {
+  margin: 3rem !important;
+}
+
+.m-2 {
+  margin: 2rem !important;
+}
+
+.m-1 {
+  margin: 1rem !important;
+}
+
+.ms-55 {
+  margin-left: 55rem;
+}
+
+.ms-34 {
+  margin-left: 34rem;
+}
+
+.ms-21 {
+  margin-left: 21rem;
+}
+
+.ms-13 {
+  margin-left: 13rem;
+}
+
+.ms-8 {
+  margin-left: 8rem;
+}
+
+.ms-5 {
+  margin-left: 5rem !important;
+}
+
+.ms-3 {
+  margin-left: 3rem !important;
+}
+
+.ms-2 {
+  margin-left: 2rem !important;
+}
+
+.ms-1 {
+  margin-left: 1rem !important;
+}
+
+.me-55 {
+  margin-right: 55rem;
+}
+
+.me-34 {
+  margin-right: 34rem;
+}
+
+.me-21 {
+  margin-right: 21rem;
+}
+
+.me-13 {
+  margin-right: 13rem;
+}
+
+.me-8 {
+  margin-right: 8rem;
+}
+
+.me-5 {
+  margin-right: 5rem !important;
+}
+
+.me-3 {
+  margin-right: 3rem !important;
+}
+
+.me-2 {
+  margin-right: 2rem !important;
+}
+
+.me-1 {
+  margin-right: 1rem !important;
+}
+
+.mb-55 {
+  margin-bottom: 55rem;
+}
+
+.mt-34 {
+  margin-top: 34rem;
+}
+
+.mt-21 {
+  margin-top: 21rem;
+}
+
+.mt-13 {
+  margin-top: 13rem;
+}
+
+.mt-8 {
+  margin-top: 8rem;
+}
+
+.mt-5 {
+  margin-top: 5rem !important;
+}
+
+.mt-3 {
+  margin-top: 3rem !important;
+}
+
+.mt-2 {
+  margin-top: 2rem !important;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-55 {
+  margin-bottom: 55rem;
+}
+
+.mb-34 {
+  margin-bottom: 34rem;
+}
+
+.mb-21 {
+  margin-bottom: 21rem;
+}
+
+.mb-13 {
+  margin-bottom: 13rem;
+}
+
+.mb-8 {
+  margin-bottom: 8rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 3rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+.mx-55 {
+  margin-left: 55rem;
+  margin-right: 55rem;
+}
+
+.mx-34 {
+  margin-left: 34rem;
+  margin-right: 34rem;
+}
+
+.mx-21 {
+  margin-left: 21rem;
+  margin-right: 21rem;
+}
+
+.mx-13 {
+  margin-left: 13rem;
+  margin-right: 13rem;
+}
+
+.mx-8 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+
+.mx-5 {
+  margin-left: 5rem !important;
+  margin-right: 5rem !important;
+}
+
+.mx-3 {
+  margin-left: 3rem !important;
+  margin-right: 3rem !important;
+}
+
+.mx-2 {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+}
+
+.mx-1 {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.my-55 {
+  margin-top: 55rem;
+  margin-bottom: 55rem;
+}
+
+.my-34 {
+  margin-top: 34rem;
+  margin-bottom: 34rem;
+}
+
+.my-21 {
+  margin-top: 21rem;
+  margin-bottom: 21rem;
+}
+
+.my-13 {
+  margin-top: 13rem;
+  margin-bottom: 13rem;
+}
+
+.my-8 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.my-5 {
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.my-3 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+.my-2 {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.my-1 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.p-55 {
+  padding: 55rem;
+}
+.p-34 {
+  padding: 34rem;
+}
+.p-21 {
+  padding: 21rem;
+}
+.p-13 {
+  padding: 13rem;
+}
+.p-8 {
+  padding: 8rem;
+}
+.p-5 {
+  padding: 5rem !important;
+}
+.p-3 {
+  padding: 3rem !important;
+}
+.p-2 {
+  padding: 2rem !important;
+}
+.p-1 {
+  padding: 1rem !important;
+}
+
+.ps-55 {
+  padding-left: 55rem;
+}
+.ps-34 {
+  padding-left: 34rem;
+}
+.ps-21 {
+  padding-left: 21rem;
+}
+.ps-13 {
+  padding-left: 13rem;
+}
+.ps-8 {
+  padding-left: 8rem;
+}
+.ps-5 {
+  padding-left: 5rem !important;
+}
+.ps-3 {
+  padding-left: 3rem !important;
+}
+.ps-2 {
+  padding-left: 2rem !important;
+}
+.ps-1 {
+  padding-left: 1rem !important;
+}
+
+.pe-55 {
+  padding-right: 55rem;
+}
+.pe-34 {
+  padding-right: 34rem;
+}
+.pe-21 {
+  padding-right: 21rem;
+}
+.pe-13 {
+  padding-right: 13rem;
+}
+.pe-8 {
+  padding-right: 8rem;
+}
+.pe-5 {
+  padding-right: 5rem !important;
+}
+.pe-3 {
+  padding-right: 3rem !important;
+}
+.pe-2 {
+  padding-right: 2rem !important;
+}
+.pe-1 {
+  padding-right: 1rem !important;
+}
+
+.pt-34 {
+  padding-top: 34rem;
+}
+.pt-21 {
+  padding-top: 21rem;
+}
+.pt-13 {
+  padding-top: 13rem;
+}
+.pt-8 {
+  padding-top: 8rem;
+}
+.pt-5 {
+  padding-top: 5rem !important;
+}
+.pt-3 {
+  padding-top: 3rem !important;
+}
+.pt-2 {
+  padding-top: 2rem !important;
+}
+.pt-1 {
+  padding-top: 1rem !important;
+}
+
+.pb-55 {
+  padding-bottom: 55rem;
+}
+.pb-34 {
+  padding-bottom: 34rem;
+}
+.pb-21 {
+  padding-bottom: 21rem;
+}
+.pb-13 {
+  padding-bottom: 13rem;
+}
+.pb-8 {
+  padding-bottom: 8rem;
+}
+.pb-5 {
+  padding-bottom: 5rem !important;
+}
+.pb-3 {
+  padding-bottom: 3rem !important;
+}
+.pb-2 {
+  padding-bottom: 2rem !important;
+}
+.pb-1 {
+  padding-bottom: 1rem !important;
+}
+
+.px-55 {
+  padding-left: 55rem;
+  padding-right: 55rem;
+}
+.px-34 {
+  padding-left: 34rem;
+  padding-right: 34rem;
+}
+.px-21 {
+  padding-left: 21rem;
+  padding-right: 21rem;
+}
+.px-13 {
+  padding-left: 13rem;
+  padding-right: 13rem;
+}
+.px-8 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.px-5 {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+}
+.px-3 {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+.px-2 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+.px-1 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.py-55 {
+  padding-top: 55rem;
+  padding-bottom: 55rem;
+}
+.py-34 {
+  padding-top: 34rem;
+  padding-bottom: 34rem;
+}
+.py-21 {
+  padding-top: 21rem;
+  padding-bottom: 21rem;
+}
+.py-13 {
+  padding-top: 13rem;
+  padding-bottom: 13rem;
+}
+.py-8 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.py-5 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+.py-3 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+.py-2 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+.py-1 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.gap-55 {
+  gap: 55rem;
+}
+
+.gap-34 {
+  gap: 34rem;
+}
+
+.gap-21 {
+  gap: 21rem;
+}
+
+.gap-13 {
+  gap: 13rem;
+}
+
+.gap-8 {
+  gap: 8rem;
+}
+
+.gap-5 {
+  gap: 5rem;
+}
+
+.gap-3 {
+  gap: 3rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+} */
+
+/* Fibonacci SM responzivita */
+
+/* @media (min-width: 375px) {
+} */
+
+/* Fibonacci md responzivita */
+
+/* @media (min-width: 430px) {
+  .font-55 {
+    font-size: calc(55rem * var(--font-md-ratio));
+  }
+  .font-34 {
+    font-size: calc(34rem * var(--font-md-ratio));
+  }
+  .font-21 {
+    font-size: calc(21rem * var(--font-md-ratio));
+  }
+  .font-13 {
+    font-size: calc(13rem * var(--font-md-ratio));
+  }
+  .font-8 {
+    font-size: calc(8rem * var(--font-md-ratio));
+  }
+  .font-5 {
+    font-size: calc(5rem * var(--font-md-ratio));
+  }
+  .font-3 {
+    font-size: calc(3rem * var(--font-md-ratio));
+  }
+  .font-2 {
+    font-size: calc(2rem * var(--font-md-ratio));
+  }
+  .font-1 {
+    font-size: calc(1rem * var(--font-md-ratio));
+  }
+} */
+
+/* Fibonacci lg responzivita */
+
+/* @media (min-width: 768px) {
+  .font-55 {
+    font-size: calc(55rem * var(--font-lg-ratio));
+  }
+  .font-34 {
+    font-size: calc(34rem * var(--font-lg-ratio));
+  }
+  .font-21 {
+    font-size: calc(21rem * var(--font-lg-ratio));
+  }
+  .font-13 {
+    font-size: calc(13rem * var(--font-lg-ratio));
+  }
+  .font-8 {
+    font-size: calc(8rem * var(--font-lg-ratio));
+  }
+  .font-5 {
+    font-size: calc(5rem * var(--font-lg-ratio));
+  }
+  .font-3 {
+    font-size: calc(3rem * var(--font-lg-ratio));
+  }
+  .font-2 {
+    font-size: calc(2rem * var(--font-lg-ratio));
+  }
+  .font-1 {
+    font-size: calc(1rem * var(--font-lg-ratio));
+  }
+} */
+
+/* Fibonacci xl responzivita */
+
+/* @media (min-width: 1024px) {
+  .font-55 {
+    font-size: calc(55rem * var(--font-xl-ratio));
+  }
+  .font-34 {
+    font-size: calc(34rem * var(--font-xl-ratio));
+  }
+  .font-21 {
+    font-size: calc(21rem * var(--font-xl-ratio));
+  }
+  .font-13 {
+    font-size: calc(13rem * var(--font-xl-ratio));
+  }
+  .font-8 {
+    font-size: calc(8rem * var(--font-xl-ratio));
+  }
+  .font-5 {
+    font-size: calc(5rem * var(--font-xl-ratio));
+  }
+  .font-3 {
+    font-size: calc(3rem * var(--font-xl-ratio));
+  }
+  .font-2 {
+    font-size: calc(2rem * var(--font-xl-ratio));
+  }
+  .font-1 {
+    font-size: calc(1rem * var(--font-xl-ratio));
+  }
+} */
+
+/* Fibonacci xxl responzivita */
+
+/* @media (min-width: 1280px) {
+  .font-55 {
+    font-size: calc(55rem * var(--font-xxl-ratio));
+  }
+  .font-34 {
+    font-size: calc(34rem * var(--font-xxl-ratio));
+  }
+  .font-21 {
+    font-size: calc(21rem * var(--font-xxl-ratio));
+  }
+  .font-13 {
+    font-size: calc(13rem * var(--font-xxl-ratio));
+  }
+  .font-8 {
+    font-size: calc(8rem * var(--font-xxl-ratio));
+  }
+  .font-5 {
+    font-size: calc(5rem * var(--font-xxl-ratio));
+  }
+  .font-3 {
+    font-size: calc(3rem * var(--font-xxl-ratio));
+  }
+  .font-2 {
+    font-size: calc(2rem * var(--font-xxl-ratio));
+  }
+  .font-1 {
+    font-size: calc(1rem * var(--font-xxl-ratio));
+  }
+} */
+
+/* Fibonacci xxxl responzivita */
+
+/* @media (min-width: 1400px) {
+  .font-55 {
+    font-size: 55rem;
+  }
+  .font-34 {
+    font-size: 34rem;
+  }
+  .font-21 {
+    font-size: 21rem;
+  }
+  .font-13 {
+    font-size: 13rem;
+  }
+  .font-8 {
+    font-size: 8rem;
+  }
+  .font-5 {
+    font-size: 5rem;
+  }
+  .font-3 {
+    font-size: 3rem;
+  }
+  .font-2 {
+    font-size: 2rem;
+  }
+  .font-1 {
+    font-size: 1rem;
+  }
+} */
+
+/*-----------------------------------------*/
+/*h1 {*/
+/*  font-size: 6.5rem;*/
+/*}*/
+
+/*h2 {*/
+/*  font-size: 4rem;*/
+/*}*/
+
+/*h3 {*/
+/*  font-size: 2.5rem;*/
+/*}*/
+
+/*h4 {*/
+/*  font-size: 1.5rem;*/
+/*}*/
+
+/*h5 {*/
+/*  font-size: 1rem;*/
+/*}*/
+
+/*h6 {*/
+/*  font-size: 0.5rem;*/
+/*}*/
+
+/*h1 {*/
+/*  font-size: 10rem;*/
+/*}*/
+
+/*h2 {*/
+/*  font-size: 6.18rem;*/
+/*}*/
+
+/*h3 {*/
+/*  font-size: 3.82rem;*/
+/*}*/
+
+/*h4 {*/
+/*  font-size: 2.36rem;*/
+/*}*/
+
+/*h5 {*/
+/*  font-size: 1.46rem;*/
+/*}*/
+
+/*h6 {*/
+/*  font-size: 0.9rem;*/
+/*}*/
+
+/*h1 {*/
+/*  font-size: 5rem;*/
+/*}*/
+
+/*h2 {*/
+/*  font-size: 6.854rem;*/
+/*}*/
+
+/*h3 {*/
+/*  font-size: 4.236rem;*/
+/*}*/
+
+/*h4 {*/
+/*  font-size: 2.618rem;*/
+/*}*/
+
+/*h5 {*/
+/*  font-size: 1.618rem;*/
+/*}*/
+
+/*h6 {*/
+/*  font-size: 1rem;*/
+/*}*/
+
+/* Fibbonaci sequence: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610 */
+
+/*h1 {*/
+/*  font-size: 5.5625rem;*/
+/*}*/
+
+/*h2 {*/
+/*  font-size: 3.4375rem;*/
+/*}*/
+
+/*h3 {*/
+/*  font-size: 2.125rem;*/
+/*}*/
+
+/*h4 {*/
+/*  font-size: 1.3125rem;*/
+/*}*/
+
+/*h5 {*/
+/*  font-size: 0.8125rem;*/
+/*}*/
+
+/*h6 {*/
+/*  font-size: 0.5rem;*/
+/*}*/
+
+/* Zlaty rez 1.618 */
+
+/*h6 { font-size: 0.618rem; }*/
+/*h5 { font-size: 1rem; }*/
+/*h4 { font-size: 1.618rem; }*/
+/*h3 { font-size: 2.618rem; }*/
+/*h2 { font-size: 4.236rem; }*/
+/*h1 { font-size: 6.854rem; }*/
