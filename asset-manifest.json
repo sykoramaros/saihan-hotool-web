@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/saihan-hotool-web/static/css/main.9a73b247.css",
+    "main.js": "/saihan-hotool-web/static/js/main.78ddf051.js",
+    "index.html": "/saihan-hotool-web/index.html",
+    "main.9a73b247.css.map": "/saihan-hotool-web/static/css/main.9a73b247.css.map",
+    "main.78ddf051.js.map": "/saihan-hotool-web/static/js/main.78ddf051.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a73b247.css",
+    "static/js/main.78ddf051.js"
+  ]
+}
