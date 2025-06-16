@@ -60,10 +60,10 @@ const Navbar = () => {
         <span className="navbar-title fs-3 fw-medium text-white">
           {data.navbar.Title}
         </span>
-        <ul
-          className={`navbar-menu ${
+        <ul 
+          className={`navbar-menu ms-auto me-3 gap-3 gap-lg-4 my-auto d-md-flex fs-4 ${
             isOpen ? "open" : ""
-          } ms-auto me-3 gap-3 gap-lg-4 my-auto d-md-flex fs-4`}
+          } `}
         >
           <li className="nav-item  fw-medium my-auto dropdown">
             <a className="nav-link text-white" to="#">
