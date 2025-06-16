@@ -11,12 +11,8 @@
 }
 
 .logo-img {
-  position: absolute;
-  top: 20%;
-  left: 1%;
   cursor: pointer;
   filter: drop-shadow(3px 5px 5px #21261d76);
-  z-index: 1000;
 }
 
 .navbar-toggle {

@@ -1,9 +1,56 @@
 import React from "react"
 
-const Home = () => {
-  const title = "Home"
+import { useQuery, gql } from "@apollo/client"
+import { useParams } from "react-router-dom"
+import { useBaseUrl } from "../../context/BaseUrlProvider"
+import { useLanguage } from "../../context/LanguageProvider"
 
-  return <></>
+const HOME_CONTENT = gql`
+  query GetHomeContent($locale: I18NLocaleCode!) {
+    homePage(locale: $locale) {
+      documentId
+      Title
+      Subhead
+      InfoImage {
+        url
+        alternativeText
+      }
+      InfoParagraph
+      Gallery {
+        documentId
+        url
+        alternativeText
+      }
+    }
+  }
+`
+
+const Home = () => {
+  const BASE_URL = useBaseUrl()
+  const { documentId } = useParams()
+  const { currentLocale } = useLanguage()
+
+  const { loading, error, data } = useQuery(HOME_CONTENT, {
+    variables: {
+      locale: currentLocale,
+      documentId,
+    },
+  })
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
+
+  return (
+    <>
+      <h1>{data.homePage.Title}</h1>
+      <h2>{data.homePage.Subhead}</h2>
+      <img
+        src={BASE_URL + data.homePage.InfoImage.url}
+        alt={data.homePage.InfoImage.alternativeText}
+      />
+      <p>{data.homePage.InfoParagraph}</p>
+    </>
+  )
 }
 
 export default Home

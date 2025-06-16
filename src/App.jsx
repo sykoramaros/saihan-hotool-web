@@ -6,6 +6,8 @@ import "bootstrap/dist/js/bootstrap.min.js"
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { BaseUrlProvider } from "./context/BaseUrlProvider"
 
+import { LanguageProvider } from "./context/LanguageProvider"
+
 import Layout from "./Components/Layout/Layout"
 import Home from "./Pages/Home/Home"
 
@@ -20,15 +22,17 @@ const App = () => {
   return (
     <>
       <HashRouter>
-        <ApolloProvider client={client}>
-          <BaseUrlProvider value={BASE_URL}>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-              </Route>
-            </Routes>
-          </BaseUrlProvider>
-        </ApolloProvider>
+        <LanguageProvider>
+          <ApolloProvider client={client}>
+            <BaseUrlProvider value={BASE_URL}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                </Route>
+              </Routes>
+            </BaseUrlProvider>
+          </ApolloProvider>
+        </LanguageProvider>
       </HashRouter>
     </>
   )
