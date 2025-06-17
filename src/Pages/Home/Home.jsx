@@ -42,13 +42,21 @@ const Home = () => {
 
   return (
     <>
-      <h1>{data.homePage.Title}</h1>
-      <h2>{data.homePage.Subhead}</h2>
-      <img
-        src={BASE_URL + data.homePage.InfoImage.url}
-        alt={data.homePage.InfoImage.alternativeText}
-      />
-      <p>{data.homePage.InfoParagraph}</p>
+      <h1 className="text-center">{data.homePage.Title}</h1>
+      <h2 className="text-center">{data.homePage.Subhead}</h2>
+      <hr />
+      <div className="row mx-auto mt-4 d-flex justify-content-center align-content-center border border-5 p-5">
+        <div className="col-6 my-auto d-flex justify-content-center align-content-center">
+          <p>{data.homePage.InfoParagraph}</p>
+        </div>
+        <div className="col-6 my-auto d-flex justify-content-center align-content-center">
+          <img
+            className="img-fluid border"
+            src={BASE_URL + data.homePage.InfoImage.url}
+            alt={data.homePage.InfoImage.alternativeText}
+          />
+        </div>
+      </div>
     </>
   )
 }

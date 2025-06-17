@@ -60,37 +60,37 @@ const Navbar = () => {
         <span className="navbar-title fs-3 fw-medium text-white">
           {data.navbar.Title}
         </span>
-        <ul 
+        <ul
           className={`navbar-menu ms-auto me-3 gap-3 gap-lg-4 my-auto d-md-flex fs-4 ${
             isOpen ? "open" : ""
           } `}
         >
-          <li className="nav-item  fw-medium my-auto dropdown">
+          <li className="navbar-item fw-medium my-auto dropdown">
             <a className="nav-link text-white" to="#">
               {data.navbar.Home}
             </a>
           </li>
 
-          <li className="nav-item  fw-medium my-auto dropdown">
+          <li className="navbar-item fw-medium my-auto dropdown">
             <a className="nav-link text-white" to="#">
               {data.navbar.Info}
             </a>
           </li>
 
-          <li className="navbar-item  fw-medium my-auto">
-            <a to="/monitoring" className="text-white">
+          <li className="navbar-item fw-medium my-auto">
+            <a to="/monitoring" className="text-white nav-link">
               {data.navbar.Pricing}
             </a>
           </li>
 
-          <li className="navbar-item  fw-medium my-auto">
-            <a to="/contacts" className="text-white">
+          <li className="navbar-item fw-medium my-auto">
+            <a to="/contacts" className="text-white nav-link">
               {data.navbar.Gallery}
             </a>
           </li>
 
-          <li className="navbar-item  fw-medium my-auto">
-            <a to="/contacts" className="text-white">
+          <li className="navbar-item fw-medium my-auto">
+            <a to="/contacts" className="text-white nav-link">
               {data.navbar.Contact}
             </a>
           </li>

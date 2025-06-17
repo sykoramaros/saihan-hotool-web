@@ -1,37 +1,108 @@
 /* :root {
-  --golden-ratio: 1.618;
-
-  --font-ratio: 0.3;
-  --font-sm-ratio: 0.3;
-  --font-md-ratio: 0.4;
-  --font-lg-ratio: 0.5;
-  --font-xl-ratio: 0.6;
-  --font-xxl-ratio: 0.7;
+  --fib-1: 1px;
+  --fib-2: 2px;
+  --fib-3: 3px;
+  --fib-5: 5px;
+  --fib-8: 8px;
+  --fib-13: 13px;
+  --fib-21: 21px;
+  --fib-34: 34px;
+  --fib-55: 55px;
+  --fib-89: 89px;
+  --fib-144: 144px;
 } */
+
+/* Typografie
+h1 {
+  font-size: var(--fib-89);
+}
+h2 {
+  font-size: var(--fib-55);
+}
+h3 {
+  font-size: var(--fib-34);
+}
+h4 {
+  font-size: var(--fib-21);
+}
+h5 {
+  font-size: var(--fib-13);
+}
+h6 {
+  font-size: var(--fib-8);
+}
+p {
+  font-size: var(--fib-13);
+}
+.small-text {
+  font-size: var(--fib-8);
+} */
+
+:root {
+  --fs-8: 0.5rem; /* 8px */
+  --fs-13: 0.8125rem; /* 13px */
+  --fs-21: 1.3125rem; /* 21px */
+  --fs-34: 2.125rem; /* 34px */
+  --fs-55: 3.4375rem; /* 55px */
+  --fs-89: 5.5625rem; /* 89px */
+  --fs-144: 9rem; /* 144px */
+}
 
 html {
   font-size: 16px;
 }
 
-/* html * {
-  border: 1px solid skyblue;
-} */
+html * {
+  /* border: 1px solid skyblue; */
+}
 
-@font-face {
+h1 {
+  font-size: var(--fs-55); /* 55px */
+}
+
+h2 {
+  font-size: var(--fs-34); /* 34px */
+}
+
+h3 {
+  font-size: var(--fs-21); /* 21px */
+}
+
+h4 {
+  font-size: var(--fs-13); /* 13px */
+}
+
+h5 {
+  font-size: var(
+    --fs-13
+  ); /* 13px - někdy i menší, ale necháme stejnou jako p */
+}
+
+h6 {
+  font-size: var(
+    --fs-8
+  ); /* 8px - pozor, může být moc malé, můžeš dát raději 13px */
+}
+
+p {
+  font-size: var(--fs-13); /* 13px */
+}
+
+/* @font-face {
   font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraLight.ttf");
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Light.ttf");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraLightItalic.ttf");
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-LightItalic.ttf");
   font-weight: 100;
   font-style: italic;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: "Tommorow";
   src: url("/public/fonts/Tomorrow/Tomorrow-Thin.ttf");
   font-weight: 200;
@@ -43,108 +114,108 @@ html {
   src: url("/public/fonts/Tomorrow/Tomorrow-ThinItalic.ttf");
   font-weight: 200;
   font-style: italic;
-}
+} */
 
-@font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-Light.ttf");
+/* @font-face {
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Light.ttf");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-LightItalic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Italic.ttf");
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-Regular.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-Italic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Italic.ttf");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-Medium.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Medium.ttf");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-MediumItalic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-MediumItalic.ttf");
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-SemiBold.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-SemiBold.ttf");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-SemiBoldItalic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-SemiBoldItalic.ttf");
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-Bold.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-Bold.ttf");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-BoldItalic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-BoldItalic.ttf");
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraBold.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-ExtraBold.ttf");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
-  src: url("/public/fonts/Tomorrow/Tomorrow-ExtraBoldItalic.ttf");
+  font-family: "Shantell Sans";
+  src: url("/public/fonts/Shantell_Sans/static/ShantellSans-ExtraBoldItalic.ttf");
   font-weight: 800;
   font-style: italic;
-}
+} */
 
-@font-face {
-  font-family: "Tommorow";
+/* @font-face {
+  font-family: "Shantell Sans";
   src: url("/public/fonts/Tomorrow/Tomorrow-Black.ttf");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tommorow";
+  font-family: "Shantell Sans";
   src: url("/public/fonts/Tomorrow/Tomorrow-BlackItalic.ttf");
   font-weight: 900;
   font-style: italic;
-}
+} */
 
-body {
-  font-family: "Tommorow";
+html body {
+  font-family: "Shantell Sans", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
