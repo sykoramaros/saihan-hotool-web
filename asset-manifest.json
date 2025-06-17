@@ -1,31 +1,13 @@
 {
   "files": {
-    "main.css": "/saihan-hotool-web/static/css/main.0ca702aa.css",
-    "main.js": "/saihan-hotool-web/static/js/main.36c27771.js",
-    "static/media/Tomorrow-ExtraBoldItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-ExtraBoldItalic.f6d45eea01a0b32c8df1.ttf",
-    "static/media/Tomorrow-SemiBoldItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-SemiBoldItalic.b6849a64865b3917331a.ttf",
-    "static/media/Tomorrow-LightItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-LightItalic.9950b7c631b8e8c4b1c6.ttf",
-    "static/media/Tomorrow-ExtraLightItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-ExtraLightItalic.af7ad3ae925457dd9989.ttf",
-    "static/media/Tomorrow-BoldItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-BoldItalic.e56c5c78c63fa4816019.ttf",
-    "static/media/Tomorrow-Italic.ttf": "/saihan-hotool-web/static/media/Tomorrow-Italic.f47718e99ac0ac37b609.ttf",
-    "static/media/Tomorrow-MediumItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-MediumItalic.486a3bf882cc8bd6b400.ttf",
-    "static/media/Tomorrow-ThinItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-ThinItalic.11f607e75736447ad466.ttf",
-    "static/media/Tomorrow-Light.ttf": "/saihan-hotool-web/static/media/Tomorrow-Light.6e3d3e389de9cb57613b.ttf",
-    "static/media/Tomorrow-ExtraLight.ttf": "/saihan-hotool-web/static/media/Tomorrow-ExtraLight.111dd621c03c0f978e98.ttf",
-    "static/media/Tomorrow-ExtraBold.ttf": "/saihan-hotool-web/static/media/Tomorrow-ExtraBold.d9ad8e0184538469c267.ttf",
-    "static/media/Tomorrow-SemiBold.ttf": "/saihan-hotool-web/static/media/Tomorrow-SemiBold.ce153f1a0670e9ca1004.ttf",
-    "static/media/Tomorrow-Regular.ttf": "/saihan-hotool-web/static/media/Tomorrow-Regular.2542f093e1f1d0812d57.ttf",
-    "static/media/Tomorrow-Medium.ttf": "/saihan-hotool-web/static/media/Tomorrow-Medium.f220ed1823dfc351e90f.ttf",
-    "static/media/Tomorrow-Bold.ttf": "/saihan-hotool-web/static/media/Tomorrow-Bold.efce0cc51869e4a8abd6.ttf",
-    "static/media/Tomorrow-BlackItalic.ttf": "/saihan-hotool-web/static/media/Tomorrow-BlackItalic.6ddd09e893099d9d4805.ttf",
-    "static/media/Tomorrow-Thin.ttf": "/saihan-hotool-web/static/media/Tomorrow-Thin.0921032a33184f78bba7.ttf",
-    "static/media/Tomorrow-Black.ttf": "/saihan-hotool-web/static/media/Tomorrow-Black.1222b318878f08e886f4.ttf",
+    "main.css": "/saihan-hotool-web/static/css/main.f8393d07.css",
+    "main.js": "/saihan-hotool-web/static/js/main.946bae89.js",
     "index.html": "/saihan-hotool-web/index.html",
-    "main.0ca702aa.css.map": "/saihan-hotool-web/static/css/main.0ca702aa.css.map",
-    "main.36c27771.js.map": "/saihan-hotool-web/static/js/main.36c27771.js.map"
+    "main.f8393d07.css.map": "/saihan-hotool-web/static/css/main.f8393d07.css.map",
+    "main.946bae89.js.map": "/saihan-hotool-web/static/js/main.946bae89.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ca702aa.css",
-    "static/js/main.36c27771.js"
+    "static/css/main.f8393d07.css",
+    "static/js/main.946bae89.js"
   ]
 }
