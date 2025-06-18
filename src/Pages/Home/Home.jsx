@@ -5,6 +5,10 @@ import { useParams } from "react-router-dom"
 import { useBaseUrl } from "../../context/BaseUrlProvider"
 import { useLanguage } from "../../context/LanguageProvider"
 
+import LeftPictureArticle from "../../Components/LeftPictureArticle/LeftPictureArticle"
+import RightPictureArticle from "../../Components/RightPictureArticle/RightPictureArticle"
+import Carousel from "../../Components/Carousel/Carousel"
+
 const HOME_CONTENT = gql`
   query GetHomeContent($locale: I18NLocaleCode!) {
     homePage(locale: $locale) {
@@ -15,9 +19,31 @@ const HOME_CONTENT = gql`
         url
         alternativeText
       }
-      InfoParagraph
+      FirstHeadArticleImage {
+        Head
+        Paragraph
+        Image {
+          url
+          alternativeText
+        }
+      }
+      SecondHeadArticleImage {
+        Head
+        Paragraph
+        Image {
+          url
+          alternativeText
+        }
+      }
+      ThirdHeadArticleImage {
+        Head
+        Paragraph
+        Image {
+          url
+          alternativeText
+        }
+      }
       Gallery {
-        documentId
         url
         alternativeText
       }
@@ -42,20 +68,29 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="text-center">{data.homePage.Title}</h1>
-      <h2 className="text-center">{data.homePage.Subhead}</h2>
-      <hr />
-      <div className="row mx-auto mt-4 d-flex justify-content-center align-content-center border border-5 p-5">
-        <div className="col-6 my-auto d-flex justify-content-center align-content-center">
-          <p>{data.homePage.InfoParagraph}</p>
-        </div>
-        <div className="col-6 my-auto d-flex justify-content-center align-content-center">
-          <img
-            className="img-fluid border"
-            src={BASE_URL + data.homePage.InfoImage.url}
-            alt={data.homePage.InfoImage.alternativeText}
+      <div className="container-fluid">
+        <h1 className="text-center">{data.homePage.Title}</h1>
+        <h2 className="text-center">{data.homePage.Subhead}</h2>
+        <hr />
+        <div className="row gap-5 mx-auto mx-lg-5 mt-4 d-flex justify-content-center align-content-center p-3">
+          <RightPictureArticle
+            paragraph={data.homePage.FirstHeadArticleImage.Paragraph}
+            src={BASE_URL + data.homePage.FirstHeadArticleImage.Image.url}
+          />
+          <LeftPictureArticle
+            paragraph={data.homePage.SecondHeadArticleImage.Paragraph}
+            src={BASE_URL + data.homePage.SecondHeadArticleImage.Image.url}
+          />
+          <RightPictureArticle
+            paragraph={data.homePage.ThirdHeadArticleImage.Paragraph}
+            src={BASE_URL + data.homePage.ThirdHeadArticleImage.Image.url}
           />
         </div>
+        <hr className="mx-auto w-25" />
+        <div className="mx-auto mx-lg-5 rounded-circle">
+          <Carousel picture={data.homePage.Gallery} />
+        </div>
+        <hr className="mx-auto w-25" />
       </div>
     </>
   )

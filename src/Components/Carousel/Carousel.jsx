@@ -1,28 +1,35 @@
 import React from "react"
 import "./Carousel.css"
 
+import { useBaseUrl } from "../../context/BaseUrlProvider"
+
 const Carousel = ({ picture }) => {
+  const BASE_URL = useBaseUrl()
   const slider = picture
 
   return (
     <>
-      <div className="carousel-container border-top border-bottom border-1 border-secondary">
+      <div className="carousel-container">
         <div
-          id="carouselExampleAutoplaying"
+          id="carouselAutoplaying"
           className="carousel slide"
           data-bs-ride="carousel"
         >
-          <div className="carousel-inner">
+          <div className="carousel-inner rounded-pill">
             {picture.map((item, index) => (
               <div
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={index}
               >
-                <span className="carousel-text ms-2 mt-1 me-2 px-2 text-white fs-2 fw-medium rounded-1 position-absolute top-0 start-0 z-1">
+                {/* <span className="carousel-text ms-2 mt-1 me-2 px-2 text-white fs-2 fw-medium rounded-1 position-absolute top-0 start-0 z-1">
                   {item.text}
-                </span>
+                </span> */}
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={item.src} className="carousel-img" alt={item.alt} />
+                  <img
+                    src={`${BASE_URL}${item.url}`}
+                    className="carousel-img"
+                    alt={item.alt}
+                  />
                 </div>
               </div>
             ))}
@@ -30,7 +37,7 @@ const Carousel = ({ picture }) => {
           <button
             className="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-target="#carouselAutoplaying"
             data-bs-slide="prev"
           >
             <span
@@ -41,7 +48,7 @@ const Carousel = ({ picture }) => {
           <button
             className="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-target="#carouselAutoplaying"
             data-bs-slide="next"
           >
             <span
@@ -54,7 +61,7 @@ const Carousel = ({ picture }) => {
               <button
                 key={index}
                 type="button"
-                data-bs-target="#carouselExampleAutoplaying"
+                data-bs-target="#carouselAutoplaying"
                 data-bs-slide-to={index}
                 className={index === 0 ? "active" : ""}
                 aria-current={index === 0 ? "true" : undefined}
