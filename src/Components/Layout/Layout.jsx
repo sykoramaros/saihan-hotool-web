@@ -47,7 +47,7 @@ const Layout = () => {
         </div>
       </div>
       <br />
-      <div className="mt-5">
+      <div style={{ marginTop: "21vw" }}>
         <Footer />
       </div>
     </>

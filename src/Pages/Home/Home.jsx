@@ -1,4 +1,5 @@
 import React from "react"
+import "./Home.css"
 
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
@@ -8,6 +9,7 @@ import { useLanguage } from "../../context/LanguageProvider"
 import LeftPictureArticle from "../../Components/LeftPictureArticle/LeftPictureArticle"
 import RightPictureArticle from "../../Components/RightPictureArticle/RightPictureArticle"
 import Carousel from "../../Components/Carousel/Carousel"
+import HorizontalScrollingContainer from "../../Components/HorizontalScrollingContainer/HorizontalScrollingContainer"
 
 const HOME_CONTENT = gql`
   query GetHomeContent($locale: I18NLocaleCode!) {
@@ -48,6 +50,24 @@ const HOME_CONTENT = gql`
         alternativeText
       }
     }
+    horizontalScrollingContainers(locale: $locale) {
+      documentId
+      Image {
+        url
+        alternativeText
+      }
+      Title
+      TablePersonTitle
+      TableNightPriceTitle
+      TableWeekPriceTitle
+      TableRow {
+        id
+        PersonNumber
+        NightPrice
+        WeekPrice
+      }
+      BookButton
+    }
   }
 `
 
@@ -62,6 +82,7 @@ const Home = () => {
       documentId,
     },
   })
+  console.log(data)
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
@@ -71,7 +92,7 @@ const Home = () => {
       <div className="container-fluid">
         <h1 className="text-center">{data.homePage.Title}</h1>
         <h2 className="text-center">{data.homePage.Subhead}</h2>
-        <hr />
+        <hr className="horizontal-line mx-auto w-75" />
         <div className="row gap-5 mx-auto mx-lg-5 mt-4 d-flex justify-content-center align-content-center p-3">
           <RightPictureArticle
             paragraph={data.homePage.FirstHeadArticleImage.Paragraph}
@@ -86,11 +107,42 @@ const Home = () => {
             src={BASE_URL + data.homePage.ThirdHeadArticleImage.Image.url}
           />
         </div>
-        <hr className="mx-auto w-25" />
-        <div className="mx-auto mx-lg-5 rounded-circle">
-          <Carousel picture={data.homePage.Gallery} />
+        <hr className="horizontal-line mx-auto w-50" />
+
+        <div
+          className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center"
+          style={{
+            overflowX: "auto",
+            overflowY: "hidden",
+            width: "100%",
+            height: "100%",
+            // paddingBottom: "0rem",
+          }}
+        >
+          {data.horizontalScrollingContainers.map((item) => (
+            <div
+              key={item.documentId}
+              style={{ minWidth: "250px", maxWidth: "300px" }}
+            >
+              <HorizontalScrollingContainer
+                image={item?.Image}
+                title={item?.Title}
+                tablePersonTitle={item?.TablePersonTitle}
+                tableNightTitle={item?.TableNightPriceTitle}
+                tableWeekTitle={item?.TableWeekPriceTitle}
+                tableRow={item?.TableRow}
+                bookButton={item?.BookButton}
+              />
+            </div>
+          ))}
         </div>
-        <hr className="mx-auto w-25" />
+        <hr className="horizontal-line mx-auto w-25" />
+        <div className="row d-flex justify-content-center align-items-center">
+          <div className="col-12 col-sm-11">
+            <Carousel picture={data.homePage.Gallery} />
+          </div>
+        </div>
+        {/* <hr className="horizontal-line mx-auto w-25" /> */}
       </div>
     </>
   )

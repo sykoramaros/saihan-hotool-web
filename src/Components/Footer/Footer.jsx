@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
-import { useBaseUrl } from "../../context/BaseUrlProvider"
+// import { useBaseUrl } from "../../context/BaseUrlProvider"
 import { useLanguage } from "../../context/LanguageProvider"
 
 const FOOTER_CONTENT = gql`
@@ -22,7 +22,7 @@ const FOOTER_CONTENT = gql`
 `
 
 const Footer = () => {
-  const BASE_URL = useBaseUrl()
+  // const BASE_URL = useBaseUrl()
   const { documentId } = useParams()
   const { currentLocale } = useLanguage()
 
@@ -81,11 +81,18 @@ const Footer = () => {
               <p className="text-start mb-0">{data.footer.AllRights}</p>
             </div>
           </div>
-          <iframe
-            src={`https://embed.waze.com/${currentLocale}/iframe?zoom=17&lat=50.308166&lon=106.154097&ct=livemap&pin=1`}
-            width="300"
-            height="400"
-          ></iframe>
+          <hr className="mx-auto my-4 w-75" />
+          {/* OPEN STREET MAP */}
+          <div className="">
+            <iframe
+              title="map"
+              className="w-100 border border-2 shadow-sm rounded-2"
+              width="auto"
+              height="350"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=106.09213829040529%2C50.26542380510805%2C106.17917060852052%2C50.3075420423598&amp;layer=hot&amp;marker=50.28648758311509%2C106.13565444946289"
+              style={{ border: "none" }}
+            ></iframe>
+          </div>
         </div>
       </div>
     </>
