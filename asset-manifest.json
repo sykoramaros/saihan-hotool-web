@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/saihan-hotool-web/static/css/main.83ab2419.css",
-    "main.js": "/saihan-hotool-web/static/js/main.782ddde3.js",
+    "main.css": "/saihan-hotool-web/static/css/main.8c9f8316.css",
+    "main.js": "/saihan-hotool-web/static/js/main.2462086a.js",
     "index.html": "/saihan-hotool-web/index.html",
-    "main.83ab2419.css.map": "/saihan-hotool-web/static/css/main.83ab2419.css.map",
-    "main.782ddde3.js.map": "/saihan-hotool-web/static/js/main.782ddde3.js.map"
+    "main.8c9f8316.css.map": "/saihan-hotool-web/static/css/main.8c9f8316.css.map",
+    "main.2462086a.js.map": "/saihan-hotool-web/static/js/main.2462086a.js.map"
   },
   "entrypoints": [
-    "static/css/main.83ab2419.css",
-    "static/js/main.782ddde3.js"
+    "static/css/main.8c9f8316.css",
+    "static/js/main.2462086a.js"
   ]
 }
