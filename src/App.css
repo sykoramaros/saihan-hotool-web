@@ -222,19 +222,35 @@ html body {
 }
 
 .green {
-  color: #4d8825;
+  color: #a0bf94;
 }
 
 .bg-green {
-  background-color: #4d8825;
+  background-color: #a0bf94 !important;
+}
+
+.yellow {
+  color: #f3b640;
+}
+
+.bg-yellow {
+  background-color: #f3b640 !important;
 }
 
 .gray {
-  color: #656565;
+  color: #5b5b5b;
 }
 
 .bg-gray {
-  background-color: #656565;
+  background-color: #5b5b5b !important;
+}
+
+.danger {
+  color: #cb4a24;
+}
+
+.bg-danger {
+  background-color: #cb4a24 !important;
 }
 
 .light-gray {
@@ -242,7 +258,7 @@ html body {
 }
 
 .bg-light-gray {
-  background-color: #cccccc;
+  background-color: #cccccc !important;
 }
 
 .white {
@@ -250,7 +266,7 @@ html body {
 }
 
 .bg-white {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .black {
@@ -258,7 +274,15 @@ html body {
 }
 
 .bg-black {
-  background-color: #000000;
+  background-color: #000000 !important;
+}
+
+.text-shadow-black {
+  text-shadow: 2px 1px 5px #000000d1;
+}
+
+.text-shadow-white {
+  text-shadow: 2px 1px 5px #ffffffd1;
 }
 
 /* Fibonacci MINIMALNÍ GLOBALNI responzivita */

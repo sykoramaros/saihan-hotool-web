@@ -47,7 +47,7 @@ const HorizontalScrollingContainer = ({
           </table>
         </div>
         <div className="card-footer d-flex justify-content-center bg-transparent">
-          <button className="btn btn-success w-75">{bookButton}</button>
+          <button className="btn bg-green text-white w-75">{bookButton}</button>
         </div>
       </div>
     </>

@@ -11,6 +11,8 @@ import RightPictureArticle from "../../Components/RightPictureArticle/RightPictu
 import Carousel from "../../Components/Carousel/Carousel"
 import HorizontalScrollingContainer from "../../Components/HorizontalScrollingContainer/HorizontalScrollingContainer"
 
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner"
+
 const HOME_CONTENT = gql`
   query GetHomeContent($locale: I18NLocaleCode!) {
     homePage(locale: $locale) {
@@ -84,13 +86,13 @@ const Home = () => {
   })
   console.log(data)
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <LoadingSpinner />
   if (error) return <p>Error: {error.message}</p>
 
   return (
     <>
       <div className="container-fluid">
-        <h1 className="text-center">{data.homePage.Title}</h1>
+        <h1 className="text-center mt-5">{data.homePage.Title}</h1>
         <h2 className="text-center">{data.homePage.Subhead}</h2>
         <hr className="horizontal-line mx-auto w-75" />
         <div className="row gap-5 mx-auto mx-lg-5 mt-4 d-flex justify-content-center align-content-center p-3">
@@ -116,7 +118,8 @@ const Home = () => {
             overflowY: "hidden",
             width: "100%",
             height: "100%",
-            // paddingBottom: "0rem",
+            // paddingBottom: "0rem", 
+            marginBottom: "13rem",
           }}
         >
           {data.horizontalScrollingContainers.map((item) => (
@@ -136,13 +139,14 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <hr className="horizontal-line mx-auto w-25" />
+        {/* <hr className="horizontal-line mx-auto w-25" /> */}
+        {/* <hr className="horizontal-line mx-auto w-25" /> */}
+
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-12 col-sm-11">
             <Carousel picture={data.homePage.Gallery} />
           </div>
         </div>
-        {/* <hr className="horizontal-line mx-auto w-25" /> */}
       </div>
     </>
   )

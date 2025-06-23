@@ -42,7 +42,7 @@ const Layout = () => {
 
           <LanguageSwitcher />
         </div>
-        <div className="container-fluid mt-4">
+        <div className="container-fluid">
           <Outlet />
         </div>
       </div>

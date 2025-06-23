@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom"
 import { useBaseUrl } from "../../context/BaseUrlProvider"
 import { useLanguage } from "../../context/LanguageProvider"
 
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
+
 const NAVBAR_CONTENT = gql`
   query GetNavbarContent($locale: I18NLocaleCode!) {
     navbar(locale: $locale) {
@@ -38,7 +40,7 @@ const Navbar = () => {
     },
   })
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <LoadingSpinner />
   if (error) return <p>Error: {error.message}</p>
 
   const toggleMenu = () => {
@@ -51,6 +53,7 @@ const Navbar = () => {
         <div>
           <img
             className="logo-img mx-3"
+            style={{ color: "white" }}
             src={`${BASE_URL}${data.navbar.Logo.url}`}
             alt={data.navbar.Logo.alternativeText}
             width="50"

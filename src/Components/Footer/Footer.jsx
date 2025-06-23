@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom"
 // import { useBaseUrl } from "../../context/BaseUrlProvider"
 import { useLanguage } from "../../context/LanguageProvider"
 
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
+
 const FOOTER_CONTENT = gql`
   query GetFooterContent($locale: I18NLocaleCode!) {
     footer(locale: $locale) {
@@ -33,13 +35,13 @@ const Footer = () => {
     },
   })
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <LoadingSpinner />
   if (error) return <p>Error: {error.message}</p>
 
   return (
     <>
       <div className="container-fluid shadow">
-        <div className="footer-container row p-4">
+        <div className="footer-container row p-4 bg-light-gray">
           <div className="d-block d-sm-none col-sm-12 d-flex justify-content-center align-items-center mb-3">
             <Link
               to="/contacts"
@@ -64,7 +66,7 @@ const Footer = () => {
           <div className="d-none d-sm-block col-sm-4 d-flex justify-content-center align-items-center">
             <Link
               to="/contacts"
-              className="text-white text-center d-block text-decoration-none bg-green p-2 rounded-1 fs-1"
+              className="text-white text-center d-block text-decoration-none bg-green border border-3 p-2 rounded-1 fs-1"
             >
               {data.footer.ButtonTitle}
             </Link>
@@ -73,7 +75,7 @@ const Footer = () => {
             <div className="d-flex flex-column justify-content-center py-1 gray rounded-1 fs-5 h-100">
               <Link
                 to="/data-protections"
-                className="text-start green mb-0 text-decoration-none"
+                className="text-start green text-shadow-white text-uppercase mb-0 text-decoration-none"
               >
                 {data.footer.DataProtections}
               </Link>

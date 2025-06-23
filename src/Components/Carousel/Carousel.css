@@ -6,7 +6,7 @@
   /* border: #000000 1px solid; */
   border-radius: 50rem;
   border: 5vw solid #ffffff;
-  box-shadow: 34vw -8vw 8px -13px #110f08bd, -34vw 8vw 8px -13px #110f0894;
+  box-shadow: 34vw -8vw 8px -13px #f3b640, -34vw 8vw 8px -13px #a0bf94;
 }
 
 .carousel-img {
@@ -14,7 +14,7 @@
   height: auto; /* nebo jiná požadovaná výška */
   object-fit: cover;
   object-position: center;
-  background-color: #257e88;
+  /* background-color: #257e88; */
   /* box-shadow: 12px 12px 25px #000000; */
   /* border: 1px solid #ffffff; */
   /* border-radius: 100px; */
