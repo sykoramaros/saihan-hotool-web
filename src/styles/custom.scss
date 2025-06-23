@@ -1,0 +1,39 @@
+// 1️⃣ Nejdříve přepiš proměnné PŘED importem Bootstrapu
+$primary: #ffd88a;
+$secondary: #a3d4f7;
+$success: #6b8e23;
+$info: #6faedb;
+$warning: #8b5e3c;
+$danger: #f1a899;
+$light: #f8f9fa;
+$dark: #2e3b2d;
+
+$bg-primary: #ffd88a;
+$bg-secondary: #a3d4f7;
+$bg-success: #6b8e23;
+$bg-info: #6faedb;
+$bg-warning: #8b5e3c;
+$bg-danger: #f1a899;
+$bg-light: #f8f9fa;
+$bg-dark: #2e3b2d;
+
+$text-primary: #ffd88a;
+$text-secondary: #a3d4f7;
+$text-success: #6b8e23;
+$text-info: #6faedb;
+$text-warning: #8b5e3c;
+$text-danger: #f1a899;
+$text-light: #f8f9fa;
+$text-dark: #2e3b2d;
+
+$table-primary: #ffd88a;
+$table-secondary: #a3d4f7;
+$table-success: #6b8e23;
+$table-info: #6faedb;
+$table-warning: #8b5e3c;
+$table-danger: #f1a899;
+$table-light: #f8f9fa;
+$table-dark: #2e3b2d;
+
+// 2️⃣ Pak importuj Bootstrap
+@import "bootstrap/scss/bootstrap";

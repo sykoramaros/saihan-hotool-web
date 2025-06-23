@@ -17,7 +17,7 @@ const Layout = () => {
       </div>
       <div style={{ minHeight: "100vh" }}>
         <div
-          className={`language-container d-flex ${isOpen ? "open" : ""}`}
+          className={`language-container bg-info d-flex ${isOpen ? "open" : ""}`}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >

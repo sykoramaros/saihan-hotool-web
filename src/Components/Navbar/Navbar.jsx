@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar-container d-flex justify-content-evenly align-items-center w-100 py-2 rounded-bottom-3">
+      <nav className="navbar-container bg-warning d-flex justify-content-evenly align-items-center w-100 py-2 rounded-bottom-3">
         <div>
           <img
             className="logo-img mx-3"
@@ -60,7 +60,7 @@ const Navbar = () => {
             height="auto"
           />
         </div>
-        <span className="navbar-title fs-3 fw-medium text-white">
+        <span className="navbar-title fs-3 fw-medium text-white text-shadow-black">
           {data.navbar.Title}
         </span>
         <ul
@@ -68,13 +68,13 @@ const Navbar = () => {
             isOpen ? "open" : ""
           } `}
         >
-          <li className="navbar-item fw-medium my-auto dropdown">
+          <li className="navbar-item fw-medium my-auto">
             <a className="nav-link text-white" to="#">
               {data.navbar.Home}
             </a>
           </li>
 
-          <li className="navbar-item fw-medium my-auto dropdown">
+          <li className="navbar-item fw-medium my-auto">
             <a className="nav-link text-white" to="#">
               {data.navbar.Info}
             </a>

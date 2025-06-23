@@ -14,19 +14,21 @@ const HorizontalScrollingContainer = ({
 
   return (
     <>
-      <div className="card">
+      <div className="card bg-light">
         <img
           src={BASE_URL + image?.url}
-          className="card-img-top img-fluid mx-auto mt-4"
+          className="card-img-top img-fluid mx-auto"
           alt={image?.alternativeText}
           style={{ maxHeight: "175px" }}
           // height={"175px"}
         />
+        <hr className="mx-auto w-75" />
         <div className="">
           <h5 className="card-title display-6 text-center">{title}</h5>
         </div>
+        <hr className="mx-auto w-75" />
         <div className="card-body">
-          <table className="table text-center">
+          <table className="table table-light text-center">
             <thead>
               <tr>
                 <th>{tablePersonTitle}</th>
@@ -47,7 +49,9 @@ const HorizontalScrollingContainer = ({
           </table>
         </div>
         <div className="card-footer d-flex justify-content-center bg-transparent">
-          <button className="btn bg-green text-white w-75">{bookButton}</button>
+          <button className="btn fs-4 bg-success text-white w-75">
+            {bookButton}
+          </button>
         </div>
       </div>
     </>

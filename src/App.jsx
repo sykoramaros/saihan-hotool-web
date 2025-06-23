@@ -1,10 +1,11 @@
 import React from "react"
 import { HashRouter, Routes, Route } from "react-router-dom"
 
-import "./App.css"
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
+
+import "./styles/custom.scss"
+import "./App.css"
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { BaseUrlProvider } from "./context/BaseUrlProvider"

@@ -112,7 +112,7 @@ const Home = () => {
         <hr className="horizontal-line mx-auto w-50" />
 
         <div
-          className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center"
+          className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center bg-primary py-4 px-5"
           style={{
             overflowX: "auto",
             overflowY: "hidden",
