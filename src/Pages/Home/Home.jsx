@@ -118,7 +118,7 @@ const Home = () => {
             overflowY: "hidden",
             width: "100%",
             height: "100%",
-            // paddingBottom: "0rem", 
+            // paddingBottom: "0rem",
             marginBottom: "13rem",
           }}
         >
