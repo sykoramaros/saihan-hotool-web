@@ -1,5 +1,72 @@
+.app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+  background: linear-gradient(
+    75deg,
+    #ffd88a75,
+    #f8f9fa,
+    #ffd88a6f,
+    #f8f9fa,
+    #ffd88a79,
+    #f8f9fa,
+    #ffd88a6c,
+    #f8f9fa,
+    #ffd88a7d
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 90s ease infinite;
+  /* hueRotation 180s linear infinite; */
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes hueRotation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+
+@keyframes hueRotation {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+
 .language-container {
   position: fixed;
+  opacity: 80%;
   /* background-color: #a0bf94; */
   border-radius: 50%;
   width: 150px;

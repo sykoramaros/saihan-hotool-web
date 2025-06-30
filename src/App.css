@@ -50,6 +50,7 @@ p {
 
 html {
   font-size: 16px;
+  margin: auto;
 }
 
 html * {
@@ -223,7 +224,7 @@ html body {
 
 
 
-.green {
+/* .green {
   color: #a0bf94;
 }
 
@@ -277,7 +278,7 @@ html body {
 
 .bg-black {
   background-color: #000000 !important;
-}
+} */
 
 .text-shadow-black {
   text-shadow: 2px 1px 5px #000000d1;

@@ -12,6 +12,18 @@ const Layout = () => {
 
   return (
     <>
+      <div
+        className="app-container"
+        // style={{
+        //   minHeight: "100vh",
+        //   width: "100%",
+        //   backgroundImage: `url(${
+        //     process.env.PUBLIC_URL + "/img/gradient-background.svg"
+        //   })`,
+        //   backgroundRepeat: "no-repeat",
+        //   backgroundSize: "cover",
+        // }}
+      ></div>
       <div className="sticky-top">
         <Navbar />
       </div>
@@ -44,7 +56,7 @@ const Layout = () => {
 
           <LanguageSwitcher />
         </div>
-        <div className="container-fluid">
+        <div className="">
           <Outlet />
         </div>
       </div>
