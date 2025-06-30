@@ -95,58 +95,64 @@ const Home = () => {
         <h1 className="text-center mt-5">{data.homePage.Title}</h1>
         <h2 className="text-center">{data.homePage.Subhead}</h2>
         <hr className="horizontal-line mx-auto w-75" />
-        <div className="row gap-5 mx-auto mx-lg-5 mt-4 d-flex justify-content-center align-content-center p-3">
-          <RightPictureArticle
-            paragraph={data.homePage.FirstHeadArticleImage.Paragraph}
-            src={BASE_URL + data.homePage.FirstHeadArticleImage.Image.url}
-          />
-          <LeftPictureArticle
-            paragraph={data.homePage.SecondHeadArticleImage.Paragraph}
-            src={BASE_URL + data.homePage.SecondHeadArticleImage.Image.url}
-          />
-          <RightPictureArticle
-            paragraph={data.homePage.ThirdHeadArticleImage.Paragraph}
-            src={BASE_URL + data.homePage.ThirdHeadArticleImage.Image.url}
-          />
-        </div>
+        <section id="info">
+          <div className="row gap-5 mx-auto mx-lg-5 mt-4 d-flex justify-content-center align-content-center p-3">
+            <RightPictureArticle
+              paragraph={data.homePage.FirstHeadArticleImage.Paragraph}
+              src={BASE_URL + data.homePage.FirstHeadArticleImage.Image.url}
+            />
+            <LeftPictureArticle
+              paragraph={data.homePage.SecondHeadArticleImage.Paragraph}
+              src={BASE_URL + data.homePage.SecondHeadArticleImage.Image.url}
+            />
+            <RightPictureArticle
+              paragraph={data.homePage.ThirdHeadArticleImage.Paragraph}
+              src={BASE_URL + data.homePage.ThirdHeadArticleImage.Image.url}
+            />
+          </div>
+        </section>
         <hr className="horizontal-line mx-auto w-50" />
 
-        <div
-          className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center bg-primary py-4 px-5"
-          style={{
-            overflowX: "auto",
-            overflowY: "hidden",
-            width: "100%",
-            height: "100%",
-            // paddingBottom: "0rem",
-            marginBottom: "13rem",
-          }}
-        >
-          {data.horizontalScrollingContainers.map((item) => (
-            <div
-              key={item.documentId}
-              style={{ minWidth: "250px", maxWidth: "300px" }}
-            >
-              <HorizontalScrollingContainer
-                image={item?.Image}
-                title={item?.Title}
-                tablePersonTitle={item?.TablePersonTitle}
-                tableNightTitle={item?.TableNightPriceTitle}
-                tableWeekTitle={item?.TableWeekPriceTitle}
-                tableRow={item?.TableRow}
-                bookButton={item?.BookButton}
-              />
-            </div>
-          ))}
-        </div>
+        <section id="horizontal-cards">
+          <div
+            className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center bg-primary py-4 px-5"
+            style={{
+              overflowX: "auto",
+              overflowY: "hidden",
+              width: "100%",
+              height: "100%",
+              // paddingBottom: "0rem",
+              marginBottom: "13rem",
+            }}
+          >
+            {data.horizontalScrollingContainers.map((item) => (
+              <div
+                key={item.documentId}
+                style={{ minWidth: "250px", maxWidth: "300px" }}
+              >
+                <HorizontalScrollingContainer
+                  image={item?.Image}
+                  title={item?.Title}
+                  tablePersonTitle={item?.TablePersonTitle}
+                  tableNightTitle={item?.TableNightPriceTitle}
+                  tableWeekTitle={item?.TableWeekPriceTitle}
+                  tableRow={item?.TableRow}
+                  bookButton={item?.BookButton}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
         {/* <hr className="horizontal-line mx-auto w-25" /> */}
         {/* <hr className="horizontal-line mx-auto w-25" /> */}
 
-        <div className="row d-flex justify-content-center align-items-center">
-          <div className="col-12 col-sm-11">
-            <Carousel picture={data.homePage.Gallery} />
+        <section id="carousel-gallery">
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="col-12 col-sm-11">
+              <Carousel picture={data.homePage.Gallery} />
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   )

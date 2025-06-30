@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./Navbar.css"
 
+import { HashLink } from "react-router-hash-link"
+
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
 import { useBaseUrl } from "../../context/BaseUrlProvider"
@@ -69,33 +71,33 @@ const Navbar = () => {
           } `}
         >
           <li className="navbar-item fw-medium my-auto">
-            <a className="nav-link text-white" to="#">
+            <HashLink className="nav-link text-white" to="#top-page">
               {data.navbar.Home}
-            </a>
+            </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <a className="nav-link text-white" to="#">
+            <HashLink className="nav-link text-white" to="/#info">
               {data.navbar.Info}
-            </a>
+            </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <a to="/monitoring" className="text-white nav-link">
+            <HashLink to="/#horizontal-cards" className="text-white nav-link">
               {data.navbar.Pricing}
-            </a>
+            </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <a to="/contacts" className="text-white nav-link">
+            <HashLink to="/#carousel-gallery" className="text-white nav-link">
               {data.navbar.Gallery}
-            </a>
+            </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <a to="/contacts" className="text-white nav-link">
+            <HashLink to="/#contacts" className="text-white nav-link">
               {data.navbar.Contact}
-            </a>
+            </HashLink>
           </li>
         </ul>
 

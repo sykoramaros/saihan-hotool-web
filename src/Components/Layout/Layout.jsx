@@ -12,43 +12,47 @@ const Layout = () => {
 
   return (
     <>
-      <div className="sticky-top">
-        <Navbar />
-      </div>
-      <div style={{ minHeight: "100vh" }}>
-        <div
-          className={`language-container bg-info d-flex ${isOpen ? "open" : ""}`}
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
-        >
-          <img
-            className="language-arrow"
-            style={{
-              fontSize: "30px",
-              position: "absolute",
-              top: "50%",
-              left: "15px",
-              transform: "translate(-50%, -50%)",
-            }}
-            // src={process.env.PUBLIC_URL + "/img/arrow-left-svgrepo-com.svg"}
-            src={
-              isOpen
-                ? process.env.PUBLIC_URL + "/img/arrow-right-svgrepo-com.svg"
-                : process.env.PUBLIC_URL + "/img/arrow-left-svgrepo-com.svg"
-            }
-            alt="left arrow"
-            width={"35px"}
-          />
+      <div id="top-page">
+        <div className="sticky-top">
+          <Navbar />
+        </div>
+        <div style={{ minHeight: "100vh" }}>
+          <div
+            className={`language-container bg-info d-flex ${
+              isOpen ? "open" : ""
+            }`}
+            onMouseEnter={() => setIsOpen(true)}
+            onMouseLeave={() => setIsOpen(false)}
+          >
+            <img
+              className="language-arrow"
+              style={{
+                fontSize: "30px",
+                position: "absolute",
+                top: "50%",
+                left: "15px",
+                transform: "translate(-50%, -50%)",
+              }}
+              // src={process.env.PUBLIC_URL + "/img/arrow-left-svgrepo-com.svg"}
+              src={
+                isOpen
+                  ? process.env.PUBLIC_URL + "/img/arrow-right-svgrepo-com.svg"
+                  : process.env.PUBLIC_URL + "/img/arrow-left-svgrepo-com.svg"
+              }
+              alt="left arrow"
+              width={"35px"}
+            />
 
-          <LanguageSwitcher />
+            <LanguageSwitcher />
+          </div>
+          <div className="container-fluid">
+            <Outlet />
+          </div>
         </div>
-        <div className="container-fluid">
-          <Outlet />
+        <br />
+        <div style={{ marginTop: "21vw" }} id="contacts">
+          <Footer />
         </div>
-      </div>
-      <br />
-      <div style={{ marginTop: "21vw" }}>
-        <Footer />
       </div>
     </>
   )
