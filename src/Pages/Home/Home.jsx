@@ -92,7 +92,9 @@ const Home = () => {
   return (
     <>
       <div className="container-fluid">
-        <h1 className="text-center mt-5">{data.homePage.Title}</h1>
+        <h1 className="text-center mt-5" id="top-page">
+          {data.homePage.Title}
+        </h1>
         <h2 className="text-center">{data.homePage.Subhead}</h2>
         <hr className="horizontal-line mx-auto w-75" />
         <section id="info">
@@ -113,7 +115,7 @@ const Home = () => {
         </section>
         <hr className="horizontal-line mx-auto w-50" />
 
-        <section id="horizontal-cards">
+        <section id="prices">
           <div
             className="d-flex flex-nowrap gap-3 hide-scrollbar justify-content-center align-items-center bg-primary py-4 px-5"
             style={{

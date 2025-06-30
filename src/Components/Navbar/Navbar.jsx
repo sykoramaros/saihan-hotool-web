@@ -71,31 +71,71 @@ const Navbar = () => {
           } `}
         >
           <li className="navbar-item fw-medium my-auto">
-            <HashLink className="nav-link text-white" to="#top-page">
+            <HashLink
+              className="nav-link text-white"
+              to="#top-page"
+              smooth
+              scroll={(el) => {
+                const offset = -999
+                const y =
+                  el.getBoundingClientRect().top + window.pageYOffset + offset
+                window.scrollTo({ top: y, behavior: "smooth" })
+              }}
+            >
               {data.navbar.Home}
             </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <HashLink className="nav-link text-white" to="/#info">
+            <HashLink
+              className="nav-link text-white"
+              to="/#info"
+              smooth
+              scroll={(el) => {
+                const offset = -200
+                const y =
+                  el.getBoundingClientRect().top + window.pageYOffset + offset
+                window.scrollTo({ top: y, behavior: "smooth" })
+              }}
+            >
               {data.navbar.Info}
             </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <HashLink to="/#horizontal-cards" className="text-white nav-link">
+            <HashLink
+              className="text-white nav-link"
+              to="/#prices"
+              smooth
+              scroll={(el) => {
+                const offset = -100
+                const y =
+                  el.getBoundingClientRect().top + window.pageYOffset + offset
+                window.scrollTo({ top: y, behavior: "smooth" })
+              }}
+            >
               {data.navbar.Pricing}
             </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <HashLink to="/#carousel-gallery" className="text-white nav-link">
+            <HashLink
+              className="text-white nav-link"
+              to="/#carousel-gallery"
+              smooth
+              scroll={(el) => {
+                const offset = -75
+                const y =
+                  el.getBoundingClientRect().top + window.pageYOffset + offset
+                window.scrollTo({ top: y, behavior: "smooth" })
+              }}
+            >
               {data.navbar.Gallery}
             </HashLink>
           </li>
 
           <li className="navbar-item fw-medium my-auto">
-            <HashLink to="/#contacts" className="text-white nav-link">
+            <HashLink className="text-white nav-link" to="/#contacts" smooth>
               {data.navbar.Contact}
             </HashLink>
           </li>
