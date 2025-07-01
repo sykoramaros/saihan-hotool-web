@@ -62,7 +62,7 @@ const Navbar = () => {
             height="auto"
           />
         </div>
-        <span className="navbar-title fs-3 fw-medium text-white text-shadow-black">
+        <span className="navbar-title fs-3 fw-medium text-uppercase text-white text-shadow-black">
           {data.navbar.Title}
         </span>
         <ul

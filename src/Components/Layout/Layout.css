@@ -108,3 +108,42 @@
   opacity: 0%;
   transition: opacity 0.5s ease-in-out;
 }
+
+.cookies-modal-container {
+  position: absolute;
+  top: 350px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 0 20px #000000;
+  overflow: hidden;
+  cursor: default;
+  /* width: 100%; */
+  width: 300px;
+  font-size: 1.15rem;
+  border-radius: 10rem 10rem 0 0;
+  margin: 0 auto;
+}
+
+@media (min-width: 428px) {
+  .cookies-modal-container {
+    width: 400px;
+  }
+}
+
+@media (min-width: 575px) {
+  .cookies-modal-container {
+    width: 500px;
+  }
+}
+
+@media (min-width: 767px) {
+  .cookies-modal-container {
+    width: 700px;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .cookies-modal-container {
+    width: 700px;
+  }
+} */
