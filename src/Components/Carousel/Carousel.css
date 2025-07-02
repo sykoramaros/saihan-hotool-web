@@ -1,8 +1,10 @@
 .carousel-container {
-  width: 100%;
+  width: auto;
   height: auto; /* nebo jiná požadovaná výška */
   overflow: hidden;
   position: relative;
+  top: 0;
+  left: 0;
   /* border: #000000 1px solid; */
   border-radius: 50rem;
   border: 5vw solid #ffffff;

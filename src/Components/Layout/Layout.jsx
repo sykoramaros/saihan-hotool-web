@@ -42,18 +42,7 @@ const Layout = () => {
 
   return (
     <>
-      <div
-        className="app-container"
-        // style={{
-        //   minHeight: "100vh",
-        //   width: "100%",
-        //   backgroundImage: `url(${
-        //     process.env.PUBLIC_URL + "/img/gradient-background.svg"
-        //   })`,
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundSize: "cover",
-        // }}
-      ></div>
+      <div className="app-container"></div>
       <div className="sticky-top">
         <Navbar />
       </div>
@@ -91,7 +80,7 @@ const Layout = () => {
         </div>
       </div>
       <br />
-      <div style={{ marginTop: "21vw" }} id="contacts">
+      <div style={{ marginTop: "8vw" }} id="contacts">
         <Footer />
       </div>
       {cookiesModalIsOpen && (

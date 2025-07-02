@@ -9,3 +9,23 @@
     #8f8f8fb9 100%
   ); */
 }
+
+.order-modal {
+  width: 55vw;
+  padding: 3vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000b2;
+  z-index: 9998;
+}

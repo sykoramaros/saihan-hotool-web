@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from "react"
 import "./Footer.css"
 import { Link } from "react-router-dom"
 
@@ -8,6 +9,8 @@ import { useParams } from "react-router-dom"
 import { useLanguage } from "../../context/LanguageProvider"
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
+
+import OrderModal from "../OrderModal/OrderModal"
 
 const FOOTER_CONTENT = gql`
   query GetFooterContent($locale: I18NLocaleCode!) {
@@ -28,6 +31,8 @@ const Footer = () => {
   const { documentId } = useParams()
   const { currentLocale } = useLanguage()
 
+  const [showOrderModal, setShowOrderModal] = useState(false)
+
   const { loading, error, data } = useQuery(FOOTER_CONTENT, {
     variables: {
       locale: currentLocale,
@@ -43,12 +48,12 @@ const Footer = () => {
       <div className="container-fluid shadow">
         <div className="footer-container row p-4 bg-primary">
           <div className="d-block d-sm-none col-sm-12 d-flex justify-content-center align-items-center mb-3">
-            <Link
-              to="/contacts"
-              className="text-white text-center d-block text-decoration-none fs-1 bg-success py-2 px-3"
+            <button
+              className="mx-auto text-white text-center d-block text-decoration-none fs-1 bg-success py-2 px-3 rounded-3"
+              onClick={() => setShowOrderModal(true)}
             >
               {data.footer.ButtonTitle}
-            </Link>
+            </button>
           </div>
           <div className="col-6 col-sm-4 d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center py-1 text-dark roounded-1 fs-5 h-100">
@@ -64,12 +69,12 @@ const Footer = () => {
             </div>
           </div>
           <div className="d-none d-sm-block col-sm-4 d-flex justify-content-center align-items-center">
-            <Link
-              to="/contacts"
-              className="text-white text-center d-block text-decoration-none bg-success border border-3 p-2 rounded-1 fs-1"
+            <button
+              className="mx-auto text-white text-center d-block text-decoration-none bg-success border border-3 py-2 px-3 rounded-3 fs-1"
+              onClick={() => setShowOrderModal(true)}
             >
               {data.footer.ButtonTitle}
-            </Link>
+            </button>
           </div>
           <div className="col-6 col-sm-4 d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center py-1 rounded-1 fs-5 h-100">
@@ -101,6 +106,17 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {showOrderModal && (
+        <div
+          className="modal-backdrop"
+          onClick={() => setShowOrderModal(false)}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="order-modal border border-2 border-info rounded-4 bg-primary">
+            <OrderModal />
+          </div>
+        </div>
+      )}
     </>
   )
 }

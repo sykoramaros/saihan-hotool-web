@@ -51,6 +51,8 @@ p {
 html {
   font-size: 16px;
   margin: auto;
+  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 html * {
@@ -221,8 +223,6 @@ html body {
   padding: 0;
   background-color: #ffffff;
 }
-
-
 
 /* .green {
   color: #a0bf94;
