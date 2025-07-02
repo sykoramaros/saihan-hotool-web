@@ -14,10 +14,12 @@
   width: 55vw;
   padding: 3vw;
   position: fixed;
-  top: 50%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+  overflow-y: auto;
+  max-height: 85vh;
 }
 
 .modal-backdrop {
@@ -26,6 +28,22 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000b2;
-  z-index: 9998;
+  background-color: #000000b5;
+  z-index: 99;
+}
+
+@media (max-width: 428px) {
+  .order-modal {
+    top: 55%;
+    max-height: 75vh;
+    width: 89vw;
+  }
+}
+
+@media (max-width: 926px) and (orientation: landscape) {
+  .order-modal {
+    top: 57%;
+    max-height: 75vh;
+    width: 55vw;
+  }
 }

@@ -112,7 +112,7 @@ const Footer = () => {
           onClick={() => setShowOrderModal(false)}
           style={{ cursor: "pointer" }}
         >
-          <div className="order-modal border border-2 border-info rounded-4 bg-primary">
+          <div className="order-modal border border-2 border-info rounded-4 bg-primary" onClick={(e) => e.stopPropagation()}>
             <OrderModal />
           </div>
         </div>
