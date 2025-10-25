@@ -1,12 +1,9 @@
 #!/bin/bash
-SERVER_USER="root"
-SERVER_HOST="192.168.100.13"
-# cesta ke slozce frontend projektu na serveru
-SERVER_PATH="/var/Docker/Saihan_Hotool/frontend-apache"
-# konkretni nazev bezicniho kontejneru
-CONTAINER_NAME="my_saihan_hotool_apache"
-# univerzalni image pro vsechny react frontend projekty
-IMAGE_NAME="my_apache"
+
+source .env.deploy
+
+echo "📄 Načítám data z .env"
+
 
 echo "🚀 Začínám deployment..."
 
@@ -36,5 +33,5 @@ ssh $SERVER_USER@$SERVER_HOST "
     docker build -t $IMAGE_NAME . &&
     
     # Spustit nový kontejner
-    docker run -d -p 2002:80 --name $CONTAINER_NAME $IMAGE_NAME
+    docker run -d -p $CONTAINER_PORT --name $CONTAINER_NAME $IMAGE_NAME
 "
