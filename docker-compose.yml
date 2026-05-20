@@ -1,0 +1,43 @@
+services:
+  cms:
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile
+    container_name: ${PAYLOAD_CONTAINER_NAME}
+    ports:
+      - "${PAYLOAD_PORT}:3000"
+    volumes:
+      - ./apps/cms/data:/app/data
+      - ./apps/cms/media:/app/media
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
+      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+      - FRONTEND_URL=${FRONTEND_URL}
+    restart: unless-stopped
+    networks:
+      - ${NETWORK_NAME}
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: saihan_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./apps/frontend/dist:/usr/share/caddy:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - ${NETWORK_NAME}
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  saihan_net:
+    name: ${NETWORK_NAME}
+    driver: bridge
