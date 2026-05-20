@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "saihan-theme",
+  "type": "registry:style",
+  "cssVars": {
+    "theme": {
+      "radius": "0.625rem"
+    },
+    "light": {
+      "background": "oklch(1 0 0)",
+      "foreground": "oklch(0.255 0.025 140)",
+      "card": "oklch(1 0 0)",
+      "card-foreground": "oklch(0.255 0.025 140)",
+      "popover": "oklch(1 0 0)",
+      "popover-foreground": "oklch(0.255 0.025 140)",
+      "primary": "oklch(0.895 0.128 88.5)",
+      "primary-foreground": "oklch(0.255 0.025 140)",
+      "secondary": "oklch(0.845 0.065 218)",
+      "secondary-foreground": "oklch(0.255 0.025 140)",
+      "muted": "oklch(0.97 0 0)",
+      "muted-foreground": "oklch(0.556 0 0)",
+      "accent": "oklch(0.895 0.128 88.5)",
+      "accent-foreground": "oklch(0.255 0.025 140)",
+      "destructive": "oklch(0.755 0.1 22)",
+      "border": "oklch(0.922 0 0)",
+      "input": "oklch(0.922 0 0)",
+      "ring": "oklch(0.708 0 0)",
+      "success": "oklch(0.545 0.12 130)",
+      "info": "oklch(0.685 0.095 220)",
+      "warning": "oklch(0.48 0.085 50)",
+      "danger": "oklch(0.755 0.1 22)",
+      "dark": "oklch(0.255 0.025 140)"
+    }
+  }
+}
