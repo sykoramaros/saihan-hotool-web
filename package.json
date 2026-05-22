@@ -11,7 +11,7 @@
     "dev:cms": "cd apps/cms && bun run dev",
     "build": "cd apps/frontend && bun run build",
     "preview": "cd apps/frontend && bun run preview",
-    "deploy": "ssh root@192.168.100.13 'cd /var/Docker/Saihan/saihan_hotool && ./deploy.sh'"
+    "deploy:frontend": "bun run build && rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/docker/saihan_hotool/apps/frontend/dist/"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

@@ -121,7 +121,7 @@ All services run via Docker Compose on a Mac Mini server (Colima).
 
 ```
 Host:  mac-mini-server  (root@192.168.100.13)
-Path:  /var/Docker/Saihan/saihan_hotool
+Path:  /var/docker/saihan_hotool
 ```
 
 Services:
@@ -146,9 +146,9 @@ Services:
 **Step 1 — Sync any server-side changes to git**
 
 ```bash
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && git status"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && git status"
 # if there are uncommitted changes:
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && git add -A && git commit -m 'chore: sync server-side changes' && git push"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && git add -A && git commit -m 'chore: sync server-side changes' && git push"
 ```
 
 **Step 2 — Apply any non-versioned file changes**
@@ -156,21 +156,21 @@ ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && git add -A && git co
 If `.env` or `apps/cms/.env` changed locally, apply the same changes on the server:
 
 ```bash
-ssh mac-mini-server "nano /var/Docker/Saihan/saihan_hotool/.env"
-ssh mac-mini-server "nano /var/Docker/Saihan/saihan_hotool/apps/cms/.env"
+ssh mac-mini-server "nano /var/docker/saihan_hotool/.env"
+ssh mac-mini-server "nano /var/docker/saihan_hotool/apps/cms/.env"
 ```
 
 **Step 3 — Pull latest changes**
 
 ```bash
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && git pull origin main"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && git pull origin main"
 ```
 
 **Step 4a — Frontend changed: build locally and rsync dist/**
 
 ```bash
 cd apps/frontend && bun run build
-rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/Docker/Saihan/saihan_hotool/apps/frontend/dist/
+rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/docker/saihan_hotool/apps/frontend/dist/
 ```
 
 Caddy picks up the new files automatically via volume mount — no restart needed.
@@ -179,16 +179,16 @@ Caddy picks up the new files automatically via volume mount — no restart neede
 
 ```bash
 # CMS source changed (globals, collections, payload.config.ts, Dockerfile):
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && /opt/homebrew/bin/docker-compose build --no-cache cms && /opt/homebrew/bin/docker-compose up -d"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && /opt/homebrew/bin/docker-compose build --no-cache cms && /opt/homebrew/bin/docker-compose up -d"
 
 # docker-compose.yml or infra config changed:
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && /opt/homebrew/bin/docker-compose down && /opt/homebrew/bin/docker-compose up -d"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && /opt/homebrew/bin/docker-compose down && /opt/homebrew/bin/docker-compose up -d"
 ```
 
 **Step 5 — Verify no errors in logs**
 
 ```bash
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && /opt/homebrew/bin/docker-compose logs --tail 50"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && /opt/homebrew/bin/docker-compose logs --tail 50"
 ```
 
 Watch for `ERROR` lines. Use the full `/opt/homebrew/bin/docker-compose` path — SSH sessions do not load the user PATH.
@@ -196,7 +196,7 @@ Watch for `ERROR` lines. Use the full `/opt/homebrew/bin/docker-compose` path �
 **Step 6 — Follow live logs until all services are up**
 
 ```bash
-ssh mac-mini-server "cd /var/Docker/Saihan/saihan_hotool && /opt/homebrew/bin/docker-compose logs -f"
+ssh mac-mini-server "cd /var/docker/saihan_hotool && /opt/homebrew/bin/docker-compose logs -f"
 ```
 
 Press Ctrl+C to stop following.
