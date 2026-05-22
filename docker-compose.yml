@@ -24,7 +24,7 @@ services:
     container_name: saihan_caddy
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "2002:80"
     volumes:
       - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./apps/frontend/dist:/usr/share/caddy:ro
