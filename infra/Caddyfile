@@ -1,0 +1,14 @@
+{
+    auto_https off
+}
+
+:80 {
+    root * /usr/share/caddy
+
+    handle {
+        try_files {path} /index.html
+        file_server
+    }
+
+    encode gzip
+}
