@@ -169,7 +169,9 @@ export const Home = () => {
                 <CarouselContent className="-ml-0">
                   {gallery.map((img, i) => (
                     <CarouselItem key={i} className="pl-0">
-                      <img src={img.url} className="w-full h-auto object-cover object-center" alt={img.alt} />
+                      <div className="aspect-video overflow-hidden">
+                        <img src={img.url} className="w-full h-full object-cover object-center" alt={img.alt} />
+                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
