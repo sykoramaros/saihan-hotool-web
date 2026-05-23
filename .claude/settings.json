@@ -1,5 +1,13 @@
 {
   "permissions": {
-    "allow": ["Bash(*)", "Write(*)", "Edit(*)", "Read(*)", "Glob(*)", "Grep(*)"]
+    "allow": [
+      "Bash(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "mcp__playwright__*"
+    ]
   }
 }
