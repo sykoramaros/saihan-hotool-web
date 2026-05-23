@@ -35,7 +35,7 @@ export const Navbar = () => {
     { label: NavbarContent.info, onClick: scrollTo("info", 80) },
     { label: NavbarContent.pricing, onClick: scrollTo("prices", 80) },
     { label: NavbarContent.gallery, onClick: scrollTo("carousel-gallery", 80) },
-    { label: NavbarContent.contact, onClick: scrollTo("contacts") },
+    { label: NavbarContent.contact, onClick: scrollTo("contacts", 80) },
   ]
 
   return (

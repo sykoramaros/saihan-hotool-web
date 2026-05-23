@@ -66,11 +66,11 @@ function Root() {
       <div style={{ minHeight: "100vh" }}>
         <Outlet />
       </div>
-      <div style={{ marginTop: "8vw" }} id="contacts">
+      <div className="mt-16 md:mt-24" id="contacts">
         <Footer />
       </div>
       <Dialog open={cookiesOpen} onOpenChange={(open) => !open && setCookiesOpen(false)}>
-        <DialogContent showCloseButton={false} className="overflow-hidden p-0 rounded-[10rem_10rem_0_0] sm:max-w-[500px] md:max-w-[700px]">
+        <DialogContent showCloseButton={false} className="overflow-hidden p-0 rounded-[3rem_3rem_0_0] sm:rounded-[10rem_10rem_0_0] sm:max-w-[500px] md:max-w-[700px]">
           <CookiesBanner onClose={() => setCookiesOpen(false)} />
         </DialogContent>
       </Dialog>
