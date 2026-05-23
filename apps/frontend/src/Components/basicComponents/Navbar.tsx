@@ -18,7 +18,6 @@ interface NavbarData {
   }
 }
 
-
 const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
   e.preventDefault()
   if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return }
@@ -29,11 +28,8 @@ const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
 
 export const Navbar = () => {
   const { data } = useLocaleQuery<NavbarData>(NAVBAR_CONTENT)
-
   if (!data) return null
-
   const { NavbarContent } = data
-
   const navItems = [
     { label: NavbarContent.home, onClick: scrollTo("top") },
     { label: NavbarContent.info, onClick: scrollTo("info", 80) },
@@ -43,35 +39,40 @@ export const Navbar = () => {
   ]
 
   return (
-    <nav className="bg-primary/90 backdrop-blur-sm shadow-md rounded-b-lg flex items-center w-full py-2 px-4 relative">
+    <nav className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-primary/30 flex items-center w-full py-2 px-4 relative">
       {NavbarContent.logo && (
         <img
-          className="cursor-pointer drop-shadow-md mx-3"
+          className="cursor-pointer mx-3"
           src={NavbarContent.logo.url}
           alt={NavbarContent.logo.alt}
           width="50"
-          height="auto"
           onClick={scrollTo("top")}
         />
       )}
 
-      <ul className="hidden md:flex gap-4 items-center text-2xl absolute left-1/2 -translate-x-1/2">
+      <ul className="hidden md:flex gap-6 items-center text-lg font-medium absolute left-1/2 -translate-x-1/2">
         {navItems.map(({ label, onClick }) => (
-          <li key={label} className="font-medium transition-transform hover:scale-110">
-            <a href="#" className="text-white no-underline" onClick={onClick}>{label}</a>
+          <li key={label}>
+            <a
+              href="#"
+              className="text-foreground no-underline hover:text-primary transition-colors pb-0.5 border-b-2 border-transparent hover:border-primary"
+              onClick={onClick}
+            >
+              {label}
+            </a>
           </li>
         ))}
       </ul>
 
-      <LocaleSwitcher className="ml-auto" />
+      <LocaleSwitcher className="ml-auto [&_button]:text-foreground [&_button]:hover:bg-primary/10" />
 
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden ml-2 text-white hover:bg-white/20 hover:text-white" aria-label="Menu">
+          <Button variant="ghost" size="icon" className="md:hidden ml-2 text-foreground hover:bg-primary/10" aria-label="Menu">
             <Menu className="size-7" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-warning border-warning/50">
+        <SheetContent side="right" className="bg-dark border-dark">
           <SheetHeader className="pb-2">
             <SheetTitle className="text-white text-left uppercase tracking-wide">Menu</SheetTitle>
           </SheetHeader>

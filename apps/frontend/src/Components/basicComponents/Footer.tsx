@@ -103,50 +103,44 @@ function OrderForm() {
 export const Footer = () => {
   const [showOrder, setShowOrder] = useState(false)
   const { data } = useLocaleQuery<FooterData>(FOOTER_CONTENT)
-
   if (!data) return null
   const f = data.FooterContent
 
   return (
     <>
-      <div className="shadow-md">
-        <div className="grid grid-cols-2 sm:grid-cols-3 p-8 bg-primary rounded-t-[20px]">
-          <div className="col-span-2 sm:hidden flex justify-center mb-6">
-            <Button variant="success" size="lg" className="text-2xl px-8 py-6 rounded-xl shadow-lg" onClick={() => setShowOrder(true)}>
+      <div className="bg-dark text-white">
+        <div className="max-w-5xl mx-auto px-8 pt-12 pb-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-primary font-bold uppercase tracking-widest text-xs mb-4">Rezervace</p>
+            <p className="text-white/60 mb-6 text-sm leading-relaxed">
+              {f.name} · {f.addressLine1} · {f.addressLine2}
+            </p>
+            <Button
+              size="lg"
+              className="bg-primary text-dark hover:bg-primary/80 font-bold text-lg px-8 py-6 rounded-xl"
+              onClick={() => setShowOrder(true)}
+            >
               {f.buttonTitle}
             </Button>
           </div>
-          <div className="flex justify-center items-center">
-            <div className="flex flex-col text-right text-lg uppercase">
-              <address className="mb-0">{f.name}</address>
-              <address className="mb-0">{f.addressLine1}</address>
-              <address className="mb-0">{f.addressLine2}</address>
-            </div>
-          </div>
-          <div className="hidden sm:flex justify-center items-center">
-            <Button variant="success" size="lg" className="text-2xl px-8 py-6 rounded-xl shadow-lg mx-auto" onClick={() => setShowOrder(true)}>
-              {f.buttonTitle}
-            </Button>
-          </div>
-          <div className="flex justify-center items-center">
-            <div className="flex flex-col text-lg">
-              <a href="#" className="text-dark no-underline uppercase mb-0 text-shadow-white">{f.dataProtections}</a>
-              <p className="text-dark mb-0">{f.copyright}</p>
-              <p className="text-dark mb-0">{f.allRights}</p>
-            </div>
-          </div>
-          <hr className="col-span-2 sm:col-span-3 mx-auto my-8 w-3/4 border-dark/30" />
-          <div className="col-span-2 sm:col-span-3">
+          <div>
             <iframe
               title="map"
-              className="w-full border-2 shadow-sm rounded-lg"
-              height="350"
+              className="w-full rounded-xl"
+              height="260"
               src="https://www.openstreetmap.org/export/embed.html?bbox=106.09213829040529%2C50.26542380510805%2C106.17917060852052%2C50.3075420423598&amp;layer=hot&amp;marker=50.28648758311509%2C106.13565444946289"
               style={{ border: "none" }}
             />
           </div>
         </div>
+        <div className="border-t border-white/10 max-w-5xl mx-auto px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
+          <p className="text-white/40 text-xs">{f.copyright} · {f.allRights}</p>
+          <a href="#" className="text-white/40 no-underline hover:text-primary text-xs transition-colors">
+            {f.dataProtections}
+          </a>
+        </div>
       </div>
+
       <Dialog open={showOrder} onOpenChange={setShowOrder}>
         <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
           <OrderForm />
