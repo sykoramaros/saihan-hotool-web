@@ -55,7 +55,7 @@ export const Navbar = () => {
         />
       )}
 
-      <ul className="hidden md:flex gap-4 items-center mx-4 text-2xl">
+      <ul className="hidden md:flex gap-4 items-center text-2xl absolute left-1/2 -translate-x-1/2">
         {navItems.map(({ label, onClick }) => (
           <li key={label} className="font-medium transition-transform hover:scale-110">
             <a href="#" className="text-white no-underline" onClick={onClick}>{label}</a>
