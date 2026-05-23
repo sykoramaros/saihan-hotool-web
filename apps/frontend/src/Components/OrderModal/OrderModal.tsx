@@ -1,6 +1,9 @@
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { ORDER_MODAL_CONTENT } from "@/graphql/queries"
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
+import { Button } from "@/Components/ui/button"
+import { Input } from "@/Components/ui/input"
+import { Label } from "@/Components/ui/label"
 
 interface OrderModalData {
   OrderModalContent: {
@@ -30,31 +33,31 @@ export const OrderModal = () => {
   return (
     <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="col-span-full">
-        <label htmlFor="inputEmail" className="block mb-1 font-medium">{o.email}</label>
-        <input type="email" id="inputEmail" placeholder="@" className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputEmail">{o.email}</Label>
+        <Input type="email" id="inputEmail" placeholder="@" className="mt-1" />
       </div>
       <div className="col-span-full">
-        <label htmlFor="inputAddress" className="block mb-1 font-medium">{o.address}</label>
-        <input type="text" id="inputAddress" placeholder={o.address ?? ""} className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputAddress">{o.address}</Label>
+        <Input type="text" id="inputAddress" placeholder={o.address ?? ""} className="mt-1" />
       </div>
       <div>
-        <label htmlFor="inputCity" className="block mb-1 font-medium">{o.city}</label>
-        <input type="text" id="inputCity" placeholder={o.city ?? ""} className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputCity">{o.city}</Label>
+        <Input type="text" id="inputCity" placeholder={o.city ?? ""} className="mt-1" />
       </div>
       <div>
-        <label htmlFor="inputCountry" className="block mb-1 font-medium">{o.country}</label>
-        <input type="text" id="inputCountry" placeholder={o.country ?? ""} className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputCountry">{o.country}</Label>
+        <Input type="text" id="inputCountry" placeholder={o.country ?? ""} className="mt-1" />
       </div>
       <div>
-        <label htmlFor="inputCheckin" className="block mb-1 font-medium">{o.checkInDate}</label>
-        <input type="date" id="inputCheckin" className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputCheckin">{o.checkInDate}</Label>
+        <Input type="date" id="inputCheckin" className="mt-1" />
       </div>
       <div>
-        <label htmlFor="inputCheckout" className="block mb-1 font-medium">{o.checkOutDate}</label>
-        <input type="date" id="inputCheckout" className="w-full border border-gray-300 rounded px-3 py-2" />
+        <Label htmlFor="inputCheckout">{o.checkOutDate}</Label>
+        <Input type="date" id="inputCheckout" className="mt-1" />
       </div>
       <div className="col-span-full">
-        <label className="block mb-2 font-medium">{o.roomType}</label>
+        <Label className="block mb-2">{o.roomType}</Label>
         <ul className="space-y-2">
           {[
             { id: "radio1", label: o.economy },
@@ -63,19 +66,19 @@ export const OrderModal = () => {
           ].map(({ id, label }, i) => (
             <li key={id} className="flex items-center gap-2 border rounded px-3 py-2">
               <input type="radio" name="roomType" id={id} defaultChecked={i === 0} />
-              <label htmlFor={id}>{label}</label>
+              <Label htmlFor={id}>{label}</Label>
             </li>
           ))}
         </ul>
       </div>
       <div className="col-span-full flex items-center gap-2">
         <input type="checkbox" id="checkMeOut" />
-        <label htmlFor="checkMeOut">{o.checkMeOut}</label>
+        <Label htmlFor="checkMeOut">{o.checkMeOut}</Label>
       </div>
       <div className="col-span-full">
-        <button type="submit" className="bg-success text-white px-6 py-2 rounded">
+        <Button type="submit" className="bg-success text-white hover:bg-success/90">
           {o.bookButton}
-        </button>
+        </Button>
       </div>
     </form>
   )

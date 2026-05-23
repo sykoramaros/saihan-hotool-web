@@ -1,9 +1,10 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
 import { useState, useEffect } from "react"
-import { Navbar } from "@/components/basicComponents/Navbar"
-import { Footer } from "@/components/basicComponents/Footer"
-import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher"
-import { CookiesModalStrapi } from "@/components/CookiesModal/CookiesModalStrapi"
+import { Navbar } from "@/Components/basicComponents/Navbar"
+import { Footer } from "@/Components/basicComponents/Footer"
+import { LanguageSwitcher } from "@/Components/LanguageSwitcher/LanguageSwitcher"
+import { CookiesModalStrapi } from "@/Components/CookiesModal/CookiesModalStrapi"
+import { Dialog, DialogContent } from "@/Components/ui/dialog"
 
 export const Route = createRootRoute({
   component: Root,
@@ -59,11 +60,11 @@ function Root() {
       <div style={{ marginTop: "8vw" }} id="contacts">
         <Footer />
       </div>
-      {cookiesModalIsOpen && (
-        <div className="cookies-modal-container">
+      <Dialog open={cookiesModalIsOpen} onOpenChange={(open) => !open && setCookiesModalIsOpen(false)}>
+        <DialogContent showCloseButton={false} className="overflow-hidden p-0 rounded-[10rem_10rem_0_0] sm:max-w-[500px] md:max-w-[700px]">
           <CookiesModalStrapi onClose={() => setCookiesModalIsOpen(false)} />
-        </div>
-      )}
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

@@ -1,3 +1,6 @@
+import { Card, CardContent, CardFooter } from "@/Components/ui/card"
+import { Button } from "@/Components/ui/button"
+
 interface TableRow {
   personNumber: number
   nightPrice: number
@@ -24,7 +27,7 @@ export const HorizontalScrollingContainer = ({
   bookButton,
 }: HorizontalScrollingContainerProps) => {
   return (
-    <div className="bg-gray-100 rounded-lg overflow-hidden flex flex-col">
+    <Card className="overflow-hidden flex flex-col gap-0 py-0">
       {image && (
         <img
           src={image.url}
@@ -36,7 +39,7 @@ export const HorizontalScrollingContainer = ({
       <hr className="mx-auto w-3/4 my-2" />
       <h5 className="text-3xl text-center px-2">{title}</h5>
       <hr className="mx-auto w-3/4 my-2" />
-      <div className="p-3">
+      <CardContent className="p-3">
         <table className="w-full text-center text-sm">
           <thead>
             <tr className="border-b">
@@ -55,12 +58,12 @@ export const HorizontalScrollingContainer = ({
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="p-3 flex justify-center mt-auto">
-        <button className="text-xl bg-success text-white w-3/4 py-2 rounded-lg">
+      </CardContent>
+      <CardFooter className="p-3 flex justify-center mt-auto">
+        <Button className="text-xl bg-success text-white hover:bg-success/90 w-3/4 h-auto py-2">
           {bookButton}
-        </button>
-      </div>
-    </div>
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }

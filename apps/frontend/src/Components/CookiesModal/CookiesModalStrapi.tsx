@@ -1,6 +1,7 @@
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { COOKIES_MODAL_CONTENT } from "@/graphql/queries"
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
+import { Button } from "@/Components/ui/button"
 
 interface CookiesModalData {
   CookiesModalContent: {
@@ -37,12 +38,12 @@ export const CookiesModalStrapi = ({ onClose }: CookiesModalStrapiProps) => {
       <div className="text-center md:text-start px-5 pt-3">
         <h1 className="text-2xl font-semibold">{c.title}</h1>
         <p>{c.text}</p>
-        <button
-          className="bg-success text-white text-lg mt-2 px-5 py-2 rounded"
+        <Button
+          className="bg-success text-white hover:bg-success/90 text-lg mt-2 px-5 h-auto py-2"
           onClick={onClose}
         >
           {c.acceptButton}
-        </button>
+        </Button>
       </div>
     </div>
   )
