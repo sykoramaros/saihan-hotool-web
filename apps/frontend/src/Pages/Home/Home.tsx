@@ -53,10 +53,10 @@ export const Home = () => {
 
   return (
     <div>
-      <h1 className="text-center mt-20 text-shadow-black" id="top-page">
+      <h1 className="text-center mt-20 text-4xl md:text-6xl font-bold text-shadow-black" id="top-page">
         {h.title}
       </h1>
-      <h2 className="text-center">{h.subhead}</h2>
+      <h2 className="text-center text-xl md:text-2xl text-muted-foreground mt-2">{h.subhead}</h2>
       <hr className="mx-auto w-3/4 my-8" />
 
       <section id="info" className="scroll-mt-20 my-20">
