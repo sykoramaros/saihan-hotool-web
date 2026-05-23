@@ -54,9 +54,6 @@ export const Navbar = () => {
           onClick={scrollTo("top")}
         />
       )}
-      <span className="text-3xl font-medium uppercase text-white text-shadow-black mr-auto">
-        {NavbarContent.title}
-      </span>
 
       <ul className="hidden md:flex gap-4 items-center mx-4 text-2xl">
         {navItems.map(({ label, onClick }) => (
