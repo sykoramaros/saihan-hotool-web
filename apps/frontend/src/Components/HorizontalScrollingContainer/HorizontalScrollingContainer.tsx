@@ -63,7 +63,7 @@ export const HorizontalScrollingContainer = ({
       </CardContent>
       <Separator />
       <CardFooter className="px-4 py-3">
-        <Button className="w-full bg-success text-white hover:bg-success/90">
+        <Button variant="success" className="w-full">
           {bookButton}
         </Button>
       </CardFooter>

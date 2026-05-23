@@ -34,7 +34,7 @@ export const Footer = () => {
           <div className="col-span-2 sm:hidden flex justify-center mb-6">
             <Button
               size="lg"
-              className="text-white bg-success hover:bg-success/90 text-2xl px-8 py-6 rounded-xl shadow-lg"
+              variant="success" className="text-2xl px-8 py-6 rounded-xl shadow-lg"
               onClick={() => setShowOrderModal(true)}
             >
               {FooterContent.buttonTitle}

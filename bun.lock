@@ -38,6 +38,7 @@
       "name": "saihan-hotool-frontend",
       "version": "0.1.0",
       "dependencies": {
+        "@radix-ui/react-checkbox": "^1.3.3",
         "@radix-ui/react-slot": "^1.1.2",
         "@sykoramaros/marosh-components": "^0.2.5",
         "@tanstack/react-router": "^1.120.0",

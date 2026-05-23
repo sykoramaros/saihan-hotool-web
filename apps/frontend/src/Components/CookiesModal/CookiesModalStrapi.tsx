@@ -43,10 +43,7 @@ export const CookiesModalStrapi = ({ onClose }: CookiesModalStrapiProps) => {
           <DialogDescription>{c.text}</DialogDescription>
         </DialogHeader>
         <Separator />
-        <Button
-          className="bg-success text-white hover:bg-success/90 self-start"
-          onClick={onClose}
-        >
+        <Button variant="success" className="self-start" onClick={onClose}>
           {c.acceptButton}
         </Button>
       </div>

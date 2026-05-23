@@ -2,6 +2,7 @@ import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { ORDER_MODAL_CONTENT } from "@/graphql/queries"
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
 import { Button } from "@/Components/ui/button"
+import { Checkbox } from "@/Components/ui/checkbox"
 import { Input } from "@/Components/ui/input"
 import { Label } from "@/Components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
@@ -80,11 +81,11 @@ export const OrderModal = () => {
           </RadioGroup>
         </div>
         <div className="col-span-full flex items-center gap-2">
-          <input type="checkbox" id="checkMeOut" className="size-4 rounded" />
+          <Checkbox id="checkMeOut" />
           <Label htmlFor="checkMeOut" className="font-normal cursor-pointer">{o.checkMeOut}</Label>
         </div>
         <div className="col-span-full">
-          <Button type="submit" className="w-full bg-success text-white hover:bg-success/90">
+          <Button type="submit" variant="success" className="w-full">
             {o.bookButton}
           </Button>
         </div>

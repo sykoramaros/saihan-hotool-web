@@ -1,8 +1,7 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Navbar } from "@/Components/basicComponents/Navbar"
 import { Footer } from "@/Components/basicComponents/Footer"
-import { LanguageSwitcher } from "@/Components/LanguageSwitcher/LanguageSwitcher"
 import { CookiesModalStrapi } from "@/Components/CookiesModal/CookiesModalStrapi"
 import { Dialog, DialogContent } from "@/Components/ui/dialog"
 
@@ -11,7 +10,6 @@ export const Route = createRootRoute({
 })
 
 function Root() {
-  const [isLangOpen, setIsLangOpen] = useState(false)
   const [cookiesModalIsOpen, setCookiesModalIsOpen] = useState(false)
 
   useEffect(() => {
@@ -30,33 +28,9 @@ function Root() {
       <div className="sticky top-0 z-50">
         <Navbar />
       </div>
-      <div
-        className={`language-container bg-info flex ${isLangOpen ? "open" : ""}`}
-        onMouseEnter={() => setIsLangOpen(true)}
-        onMouseLeave={() => setIsLangOpen(false)}
-      >
-        <img
-          className="language-arrow"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "15px",
-            transform: "translate(-50%, -50%)",
-          }}
-          src={
-            isLangOpen
-              ? "/img/arrow-right-svgrepo-com.svg"
-              : "/img/arrow-left-svgrepo-com.svg"
-          }
-          alt="toggle language"
-          width="35"
-        />
-        <LanguageSwitcher />
-      </div>
       <div style={{ minHeight: "100vh" }}>
         <Outlet />
       </div>
-      <br />
       <div style={{ marginTop: "8vw" }} id="contacts">
         <Footer />
       </div>
