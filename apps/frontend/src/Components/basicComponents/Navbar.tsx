@@ -1,12 +1,10 @@
 import { Menu } from "lucide-react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
-import { usePayloadQuery } from "@/hooks/use-payload-query"
-import { NAVBAR_CONTENT, LANGUAGE_SWITCHER_CONTENT } from "@/graphql/queries"
-import { useLanguage } from "@/context/LanguageProvider"
-import { LanguageSwitcher as MaroshLanguageSwitcher, type Language } from "@sykoramaros/marosh-components"
+import { NAVBAR_CONTENT } from "@/graphql/queries"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/Components/ui/sheet"
 import { Button } from "@/Components/ui/button"
 import { Separator } from "@/Components/ui/separator"
+import { LocaleSwitcher } from "@/Components/LanguageSwitcher/LocaleSwitcher"
 
 interface NavbarData {
   NavbarContent: {
@@ -20,15 +18,6 @@ interface NavbarData {
   }
 }
 
-interface LanguageSwitcherData {
-  LanguageSwitcherContent: {
-    languages: {
-      languageName: string
-      languageCode: string
-      languageImage: { url: string; alt: string } | null
-    }[]
-  }
-}
 
 const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
   e.preventDefault()
@@ -40,19 +29,10 @@ const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
 
 export const Navbar = () => {
   const { data } = useLocaleQuery<NavbarData>(NAVBAR_CONTENT)
-  const { data: langData } = usePayloadQuery<LanguageSwitcherData>(LANGUAGE_SWITCHER_CONTENT)
-  const { currentLocale, setCurrentLocale } = useLanguage()
 
   if (!data) return null
 
   const { NavbarContent } = data
-
-  const flagEmoji: Record<string, string> = { cs: "🇨🇿", mn: "🇲🇳" }
-  const languages: Language[] = (langData?.LanguageSwitcherContent?.languages ?? []).map((item) => ({
-    code: item.languageCode,
-    label: item.languageName,
-    flag: flagEmoji[item.languageCode] ?? item.languageCode,
-  }))
 
   const navItems = [
     { label: NavbarContent.home, onClick: scrollTo("top") },
@@ -86,14 +66,7 @@ export const Navbar = () => {
         ))}
       </ul>
 
-      {languages.length > 0 && (
-        <MaroshLanguageSwitcher
-          languages={languages}
-          value={currentLocale}
-          onChange={setCurrentLocale}
-          variant="default"
-        />
-      )}
+      <LocaleSwitcher />
 
       <Sheet>
         <SheetTrigger asChild>
