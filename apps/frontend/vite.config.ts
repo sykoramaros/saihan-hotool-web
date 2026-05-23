@@ -6,7 +6,7 @@ import path from "path"
 
 export default defineConfig({
   plugins: [tanstackRouter(), tailwindcss(), react()],
-  server: { port: 5175, open: true },
+  server: { port: 5175, open: true, proxy: { "/api": "http://localhost:3000" } },
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
   build: { outDir: "./dist", emptyOutDir: true },
 })
