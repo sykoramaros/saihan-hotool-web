@@ -18,7 +18,7 @@ export const LocaleSwitcher = () => {
   const current = LANGUAGES.find((l) => l.code === currentLocale) ?? LANGUAGES[0]
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <button className="flex items-center gap-1.5 px-2 py-1 rounded-md text-white hover:bg-white/20 transition-colors">
           <ReactCountryFlag countryCode={current.countryCode} svg style={{ width: "1.4em", height: "1.4em" }} />
