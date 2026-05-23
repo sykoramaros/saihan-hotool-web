@@ -2,8 +2,9 @@ import { Menu } from "lucide-react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { NAVBAR_CONTENT } from "@/graphql/queries"
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/Components/ui/sheet"
 import { Button } from "@/Components/ui/button"
+import { Separator } from "@/Components/ui/separator"
 
 interface NavbarData {
   NavbarContent: {
@@ -81,13 +82,19 @@ export const Navbar = () => {
             <Menu className="size-7" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="bg-warning">
-          <nav className="flex flex-col gap-6 pt-8">
+        <SheetContent side="right" className="bg-warning border-warning/50">
+          <SheetHeader className="pb-2">
+            <SheetTitle className="text-white text-left uppercase tracking-wide">
+              Menu
+            </SheetTitle>
+          </SheetHeader>
+          <Separator className="bg-white/30 mb-4" />
+          <nav className="flex flex-col gap-1">
             {navItems.map(({ label, onClick }) => (
               <a
                 key={label}
                 href="#"
-                className="navbar-item nav-link text-white text-2xl font-medium no-underline"
+                className="navbar-item nav-link text-white text-xl font-medium no-underline px-2 py-3 rounded-md hover:bg-white/10 transition-colors"
                 onClick={onClick}
               >
                 {label}

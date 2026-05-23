@@ -1,5 +1,6 @@
-import { Card, CardContent, CardFooter } from "@/Components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card"
 import { Button } from "@/Components/ui/button"
+import { Separator } from "@/Components/ui/separator"
 
 interface TableRow {
   personNumber: number
@@ -27,40 +28,42 @@ export const HorizontalScrollingContainer = ({
   bookButton,
 }: HorizontalScrollingContainerProps) => {
   return (
-    <Card className="overflow-hidden flex flex-col gap-0 py-0">
+    <Card className="overflow-hidden flex flex-col gap-0 py-0 shadow-md">
       {image && (
         <img
           src={image.url}
-          className="w-full mx-auto object-cover"
+          className="w-full object-cover"
           alt={image.alt}
-          style={{ maxHeight: "175px" }}
+          style={{ height: "175px" }}
         />
       )}
-      <hr className="mx-auto w-3/4 my-2" />
-      <h5 className="text-3xl text-center px-2">{title}</h5>
-      <hr className="mx-auto w-3/4 my-2" />
-      <CardContent className="p-3">
+      <CardHeader className="px-4 pt-4 pb-2">
+        <CardTitle className="text-2xl text-center">{title}</CardTitle>
+      </CardHeader>
+      <Separator />
+      <CardContent className="px-4 py-3">
         <table className="w-full text-center text-sm">
           <thead>
-            <tr className="border-b">
-              <th className="py-1">{tablePersonTitle}</th>
-              <th className="py-1">{tableNightTitle}</th>
-              <th className="py-1">{tableWeekTitle}</th>
+            <tr className="text-muted-foreground">
+              <th className="pb-2 font-medium">{tablePersonTitle}</th>
+              <th className="pb-2 font-medium">{tableNightTitle}</th>
+              <th className="pb-2 font-medium">{tableWeekTitle}</th>
             </tr>
           </thead>
           <tbody>
             {tableRow.map((tr, index) => (
-              <tr key={index} className="border-b last:border-0">
-                <td className="py-1">{tr.personNumber}</td>
-                <td className="py-1">{tr.nightPrice}$</td>
-                <td className="py-1">{tr.weekPrice}$</td>
+              <tr key={index} className="border-t last:border-b">
+                <td className="py-2">{tr.personNumber}</td>
+                <td className="py-2 font-medium">{tr.nightPrice}$</td>
+                <td className="py-2 font-medium">{tr.weekPrice}$</td>
               </tr>
             ))}
           </tbody>
         </table>
       </CardContent>
-      <CardFooter className="p-3 flex justify-center mt-auto">
-        <Button className="text-xl bg-success text-white hover:bg-success/90 w-3/4 h-auto py-2">
+      <Separator />
+      <CardFooter className="px-4 py-3">
+        <Button className="w-full bg-success text-white hover:bg-success/90">
           {bookButton}
         </Button>
       </CardFooter>

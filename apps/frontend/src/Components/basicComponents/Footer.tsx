@@ -34,7 +34,7 @@ export const Footer = () => {
           <div className="col-span-2 sm:hidden flex justify-center mb-6">
             <Button
               size="lg"
-              className="text-white text-4xl bg-success hover:bg-success/90 py-2 px-4 rounded-lg h-auto"
+              className="text-white bg-success hover:bg-success/90 text-2xl px-8 py-6 rounded-xl shadow-lg"
               onClick={() => setShowOrderModal(true)}
             >
               {FooterContent.buttonTitle}
@@ -50,7 +50,7 @@ export const Footer = () => {
           <div className="hidden sm:flex justify-center items-center">
             <Button
               size="lg"
-              className="text-white text-4xl bg-success border-4 border-success hover:bg-success/90 py-2 px-4 rounded-lg mx-auto h-auto"
+              className="text-white bg-success hover:bg-success/90 text-2xl px-8 py-6 rounded-xl shadow-lg mx-auto"
               onClick={() => setShowOrderModal(true)}
             >
               {FooterContent.buttonTitle}
@@ -78,7 +78,7 @@ export const Footer = () => {
         </div>
       </div>
       <Dialog open={showOrderModal} onOpenChange={setShowOrderModal}>
-        <DialogContent className="border-2 border-info bg-primary max-h-[85vh] overflow-y-auto sm:max-w-[55vw]">
+        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
           <OrderModal />
         </DialogContent>
       </Dialog>

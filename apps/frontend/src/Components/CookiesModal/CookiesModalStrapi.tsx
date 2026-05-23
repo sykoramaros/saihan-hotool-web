@@ -2,6 +2,8 @@ import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { COOKIES_MODAL_CONTENT } from "@/graphql/queries"
 import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
 import { Button } from "@/Components/ui/button"
+import { DialogHeader, DialogTitle, DialogDescription } from "@/Components/ui/dialog"
+import { Separator } from "@/Components/ui/separator"
 
 interface CookiesModalData {
   CookiesModalContent: {
@@ -25,21 +27,24 @@ export const CookiesModalStrapi = ({ onClose }: CookiesModalStrapiProps) => {
   const c = data.CookiesModalContent
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-gray-100 p-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center p-6 gap-4">
       <div className="hidden md:flex justify-center items-center">
         {c.image && (
           <img
-            className="max-h-48 object-contain"
+            className="max-h-40 object-contain"
             src={c.image.url}
             alt={c.image.alt}
           />
         )}
       </div>
-      <div className="text-center md:text-start px-5 pt-3">
-        <h1 className="text-2xl font-semibold">{c.title}</h1>
-        <p>{c.text}</p>
+      <div className="flex flex-col gap-3">
+        <DialogHeader>
+          <DialogTitle className="text-xl">{c.title}</DialogTitle>
+          <DialogDescription>{c.text}</DialogDescription>
+        </DialogHeader>
+        <Separator />
         <Button
-          className="bg-success text-white hover:bg-success/90 text-lg mt-2 px-5 h-auto py-2"
+          className="bg-success text-white hover:bg-success/90 self-start"
           onClick={onClose}
         >
           {c.acceptButton}
