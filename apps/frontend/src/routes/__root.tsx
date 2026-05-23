@@ -60,8 +60,7 @@ function Root() {
 
   return (
     <>
-      <div className="app-container" />
-      <div className="sticky top-0 z-50">
+<div className="sticky top-0 z-50">
         <Navbar />
       </div>
       <div style={{ minHeight: "100vh" }}>

@@ -22,7 +22,7 @@
       "tracking-widest": "calc(var(--tracking-normal) + 0.1em)"
     },
     "light": {
-      "background": "oklch(1 0 0)",
+      "background": "oklch(0.97 0.025 88)",
       "foreground": "oklch(0.255 0.025 140)",
       "card": "oklch(1 0 0)",
       "card-foreground": "oklch(0.255 0.025 140)",
