@@ -47,10 +47,11 @@ export const Navbar = () => {
 
   const { NavbarContent } = data
 
+  const flagEmoji: Record<string, string> = { cs: "🇨🇿", mn: "🇲🇳" }
   const languages: Language[] = (langData?.LanguageSwitcherContent?.languages ?? []).map((item) => ({
     code: item.languageCode,
     label: item.languageName,
-    flag: item.languageImage?.url ?? "",
+    flag: flagEmoji[item.languageCode] ?? item.languageCode,
   }))
 
   const navItems = [
