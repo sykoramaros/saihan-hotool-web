@@ -1,11 +1,12 @@
 import { Menu } from "lucide-react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
-import { NAVBAR_CONTENT } from "@/graphql/queries"
-import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner"
+import { usePayloadQuery } from "@/hooks/use-payload-query"
+import { NAVBAR_CONTENT, LANGUAGE_SWITCHER_CONTENT } from "@/graphql/queries"
+import { useLanguage } from "@/context/LanguageProvider"
+import { LanguageSwitcher as MaroshLanguageSwitcher, type Language } from "@sykoramaros/marosh-components"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/Components/ui/sheet"
 import { Button } from "@/Components/ui/button"
 import { Separator } from "@/Components/ui/separator"
-import { LanguageSwitcher } from "@/Components/LanguageSwitcher/LanguageSwitcher"
 
 interface NavbarData {
   NavbarContent: {
@@ -19,25 +20,38 @@ interface NavbarData {
   }
 }
 
+interface LanguageSwitcherData {
+  LanguageSwitcherContent: {
+    languages: {
+      languageName: string
+      languageCode: string
+      languageImage: { url: string; alt: string } | null
+    }[]
+  }
+}
+
 const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
   e.preventDefault()
-  if (id === "top") {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-    return
-  }
+  if (id === "top") { window.scrollTo({ top: 0, behavior: "smooth" }); return }
   const el = document.getElementById(id)
   if (!el) return
-  const top = el.getBoundingClientRect().top + window.scrollY - offset
-  window.scrollTo({ top, behavior: "smooth" })
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset, behavior: "smooth" })
 }
 
 export const Navbar = () => {
-  const { data, loading } = useLocaleQuery<NavbarData>(NAVBAR_CONTENT)
+  const { data } = useLocaleQuery<NavbarData>(NAVBAR_CONTENT)
+  const { data: langData } = usePayloadQuery<LanguageSwitcherData>(LANGUAGE_SWITCHER_CONTENT)
+  const { currentLocale, setCurrentLocale } = useLanguage()
 
-  if (loading) return <LoadingSpinner />
   if (!data) return null
 
   const { NavbarContent } = data
+
+  const languages: Language[] = (langData?.LanguageSwitcherContent?.languages ?? []).map((item) => ({
+    code: item.languageCode,
+    label: item.languageName,
+    flag: item.languageImage?.url ?? "",
+  }))
 
   const navItems = [
     { label: NavbarContent.home, onClick: scrollTo("top") },
@@ -66,41 +80,34 @@ export const Navbar = () => {
       <ul className="hidden md:flex gap-4 items-center mx-4 text-2xl">
         {navItems.map(({ label, onClick }) => (
           <li key={label} className="font-medium transition-transform hover:scale-110">
-            <a href="#" className="text-white no-underline" onClick={onClick}>
-              {label}
-            </a>
+            <a href="#" className="text-white no-underline" onClick={onClick}>{label}</a>
           </li>
         ))}
       </ul>
 
-      <LanguageSwitcher />
+      {languages.length > 0 && (
+        <MaroshLanguageSwitcher
+          languages={languages}
+          value={currentLocale}
+          onChange={setCurrentLocale}
+          variant="bubble"
+        />
+      )}
 
       <Sheet>
         <SheetTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden ml-2 text-white hover:bg-white/20 hover:text-white"
-            aria-label="Menu"
-          >
+          <Button variant="ghost" size="icon" className="md:hidden ml-2 text-white hover:bg-white/20 hover:text-white" aria-label="Menu">
             <Menu className="size-7" />
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="bg-warning border-warning/50">
           <SheetHeader className="pb-2">
-            <SheetTitle className="text-white text-left uppercase tracking-wide">
-              Menu
-            </SheetTitle>
+            <SheetTitle className="text-white text-left uppercase tracking-wide">Menu</SheetTitle>
           </SheetHeader>
           <Separator className="bg-white/30 mb-4" />
           <nav className="flex flex-col gap-1">
             {navItems.map(({ label, onClick }) => (
-              <a
-                key={label}
-                href="#"
-                className="text-white text-xl font-medium no-underline px-2 py-3 rounded-md hover:bg-white/10 transition-colors"
-                onClick={onClick}
-              >
+              <a key={label} href="#" className="text-white text-xl font-medium no-underline px-2 py-3 rounded-md hover:bg-white/10 transition-colors" onClick={onClick}>
                 {label}
               </a>
             ))}
