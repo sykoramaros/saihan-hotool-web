@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@sykoramaros/marosh-components": "^0.2.5",
     "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-router": "^1.120.0",
     "class-variance-authority": "^0.7.1",

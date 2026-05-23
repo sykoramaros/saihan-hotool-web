@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import { GraphQLClient } from "graphql-request"
-import { useBaseUrl } from "@/context/BaseUrlProvider"
+import { useBaseUrl } from "@sykoramaros/marosh-components"
 
 export function usePayloadQuery<TData>(
   query: string,
   variables?: Record<string, unknown>,
 ): { data: TData | null; loading: boolean; error: Error | null } {
-  const { baseUrl } = useBaseUrl()
+  const baseUrl = useBaseUrl()
   const [data, setData] = useState<TData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)

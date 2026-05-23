@@ -3,11 +3,18 @@ import ReactDOM from "react-dom/client"
 import { RouterProvider, createRouter } from "@tanstack/react-router"
 import { routeTree } from "./routeTree.gen"
 import { LanguageProvider } from "./context/LanguageProvider"
-import { BaseUrlProvider } from "./context/BaseUrlProvider"
-import { ThemeProvider } from "./providers/ThemeProvider"
+import {
+  BaseUrlProvider,
+  ThemeContextProvider,
+  themeData,
+  type ThemeConfig,
+} from "@sykoramaros/marosh-components"
+import saihanThemeJson from "@/themes/saihan-theme.json"
 import "./index.css"
 
 const CMS_URL = import.meta.env.VITE_CMS_URL ?? "http://localhost:3000"
+
+const themes = { ...themeData, "saihan-theme": saihanThemeJson as unknown as ThemeConfig }
 
 const router = createRouter({ routeTree })
 
@@ -19,12 +26,12 @@ declare module "@tanstack/react-router" {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider themeName="saihan-theme" mode="light">
+    <ThemeContextProvider themes={themes} defaultTheme="saihan-theme" defaultMode="light">
       <LanguageProvider>
         <BaseUrlProvider value={CMS_URL}>
           <RouterProvider router={router} />
         </BaseUrlProvider>
       </LanguageProvider>
-    </ThemeProvider>
+    </ThemeContextProvider>
   </StrictMode>,
 )
