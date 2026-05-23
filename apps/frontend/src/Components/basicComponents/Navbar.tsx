@@ -63,7 +63,7 @@ export const Navbar = () => {
         ))}
       </ul>
 
-      <LocaleSwitcher />
+      <LocaleSwitcher className="ml-auto" />
 
       <Sheet>
         <SheetTrigger asChild>

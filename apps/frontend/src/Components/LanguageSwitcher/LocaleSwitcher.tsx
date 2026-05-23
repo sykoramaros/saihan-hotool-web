@@ -13,11 +13,12 @@ const LANGUAGES = [
   { code: "mn", countryCode: "MN", label: "MN" },
 ] as const
 
-export const LocaleSwitcher = () => {
+export const LocaleSwitcher = ({ className }: { className?: string }) => {
   const { currentLocale, setCurrentLocale } = useLanguage()
   const current = LANGUAGES.find((l) => l.code === currentLocale) ?? LANGUAGES[0]
 
   return (
+    <div className={className}>
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <button className="flex items-center gap-1.5 px-2 py-1 rounded-md text-white hover:bg-white/20 transition-colors">
@@ -39,5 +40,6 @@ export const LocaleSwitcher = () => {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   )
 }
