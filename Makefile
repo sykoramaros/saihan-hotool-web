@@ -1,13 +1,15 @@
-.PHONY: start cms frontend clean
+.PHONY: start stop clean
 
-start:
-	$(MAKE) -j2 cms frontend
+stop:
+	@pkill -f "next dev" 2>/dev/null || true
+	@pkill -f "vite" 2>/dev/null || true
 
-cms:
-	cd apps/cms && bun run dev
-
-frontend:
-	bun run dev
+start: stop
+	bunx concurrently \
+		--kill-others-on-fail \
+		--names "cms,frontend" \
+		"bun run dev:cms" \
+		"bun run dev"
 
 clean:
 	rm -rf apps/cms/.next
