@@ -1,6 +1,6 @@
 .PHONY: start cms frontend clean
 
-start: clean
+start:
 	$(MAKE) -j2 cms frontend
 
 cms:

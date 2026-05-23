@@ -20,6 +20,7 @@ const turbopackAliases = Object.fromEntries(
 )
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['sharp'],
   images: {
     localPatterns: [{ pathname: '/api/media/file/**' }],
   },
