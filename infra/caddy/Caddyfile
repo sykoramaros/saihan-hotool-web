@@ -5,6 +5,14 @@
 :80 {
     root * /usr/share/caddy
 
+    handle /admin/* {
+        reverse_proxy cms:3000
+    }
+
+    handle /api/* {
+        reverse_proxy cms:3000
+    }
+
     handle {
         try_files {path} /index.html
         file_server
