@@ -23,6 +23,8 @@ export const LanguageSwitcher = () => {
     flag: item.languageImage?.url ?? "",
   }))
 
+  if (languages.length === 0) return null
+
   return (
     <MaroshLanguageSwitcher
       languages={languages}
