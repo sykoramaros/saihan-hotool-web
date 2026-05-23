@@ -6,15 +6,24 @@ import { LanguageProvider } from "./context/LanguageProvider"
 import {
   BaseUrlProvider,
   ThemeContextProvider,
-  themeData,
   type ThemeConfig,
 } from "@sykoramaros/marosh-components"
 import saihanThemeJson from "@/themes/saihan-theme.json"
+import natureJson from "@/themes/nature.json"
+import bubblegumJson from "@/themes/bubblegum.json"
+import retroArcadeJson from "@/themes/retro-arcade.json"
+import tangerineJson from "@/themes/tangerine.json"
 import "./index.css"
 
 const CMS_URL = import.meta.env.VITE_CMS_URL ?? "http://localhost:3000"
 
-const themes = { ...themeData, "saihan-theme": saihanThemeJson as unknown as ThemeConfig }
+const themes: Record<string, ThemeConfig> = {
+  "saihan-theme": saihanThemeJson as unknown as ThemeConfig,
+  nature: natureJson as unknown as ThemeConfig,
+  bubblegum: bubblegumJson as unknown as ThemeConfig,
+  "retro-arcade": retroArcadeJson as unknown as ThemeConfig,
+  tangerine: tangerineJson as unknown as ThemeConfig,
+}
 
 const router = createRouter({ routeTree })
 
