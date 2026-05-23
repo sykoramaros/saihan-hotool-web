@@ -30,33 +30,30 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-dark: var(--dark);
-}
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.255 0.025 140);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.255 0.025 140);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.255 0.025 140);
-  --primary: oklch(0.895 0.128 88.5);
-  --primary-foreground: oklch(0.255 0.025 140);
-  --secondary: oklch(0.845 0.065 218);
-  --secondary-foreground: oklch(0.255 0.025 140);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.895 0.128 88.5);
-  --accent-foreground: oklch(0.255 0.025 140);
-  --destructive: oklch(0.755 0.1 22);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --success: oklch(0.545 0.12 130);
-  --info: oklch(0.685 0.095 220);
-  --warning: oklch(0.48 0.085 50);
-  --danger: oklch(0.755 0.1 22);
-  --dark: oklch(0.255 0.025 140);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
 }
 
 @layer base {
@@ -72,10 +69,10 @@ html {
 }
 
 html body {
-  font-family: "Shantell Sans", sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: var(--background);
 }
 
 /* Animated gradient background */
@@ -88,15 +85,15 @@ html body {
   z-index: -999;
   background: linear-gradient(
     75deg,
-    #ffd88a75,
-    #f8f9fa,
-    #ffd88a6f,
-    #f8f9fa,
-    #ffd88a79,
-    #f8f9fa,
-    #ffd88a6c,
-    #f8f9fa,
-    #ffd88a7d
+    color-mix(in oklch, var(--primary) 46%, transparent),
+    var(--background),
+    color-mix(in oklch, var(--primary) 44%, transparent),
+    var(--background),
+    color-mix(in oklch, var(--primary) 49%, transparent),
+    var(--background),
+    color-mix(in oklch, var(--primary) 43%, transparent),
+    var(--background),
+    color-mix(in oklch, var(--primary) 49%, transparent)
   );
   background-size: 400% 400%;
   animation: gradientFlow 90s ease infinite;
@@ -115,12 +112,12 @@ html body {
 /* Navbar */
 .navbar-container {
   opacity: 90%;
-  box-shadow: 0px 5px 13px #21261d76;
+  box-shadow: 0px 5px 13px color-mix(in oklch, var(--dark) 46%, transparent);
 }
 
 .logo-img {
   cursor: pointer;
-  filter: drop-shadow(3px 5px 5px #21261d76);
+  filter: drop-shadow(3px 5px 5px color-mix(in oklch, var(--dark) 46%, transparent));
 }
 
 .navbar-toggle {
@@ -152,7 +149,7 @@ html body {
   border-radius: 0 0 13px 13px;
   min-height: 40vh;
   border-top: 1.5px dashed #ffffff;
-  background-color: #8b5e3c;
+  background-color: var(--warning);
 }
 
 .navbar-item a,
@@ -163,7 +160,7 @@ html body {
 .navbar-item,
 .nav-link {
   transition: all 0.3s ease-in-out;
-  text-shadow: 2px 2px 5px #0000007f;
+  text-shadow: 2px 2px 5px color-mix(in oklch, black 50%, transparent);
 }
 
 .navbar-item:hover,
@@ -223,8 +220,8 @@ html body {
   overflow: hidden;
   position: relative;
   border-radius: 50rem;
-  border: 5vw solid #ffffff;
-  box-shadow: 34vw -8vw 8px -13px #ffd88a, -34vw 8vw 8px -13px #b3c590;
+  border: 5vw solid var(--background);
+  box-shadow: 34vw -8vw 8px -13px var(--primary), -34vw 8vw 8px -13px var(--success);
 }
 
 .carousel-img {
@@ -249,7 +246,7 @@ html body {
   top: 350px;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 2px 0 20px #000000;
+  box-shadow: 2px 0 20px var(--dark);
   overflow: hidden;
   width: 300px;
   font-size: 1.15rem;
@@ -274,7 +271,7 @@ html body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000b5;
+  background-color: color-mix(in oklch, black 71%, transparent);
   z-index: 99;
   cursor: pointer;
 }
@@ -300,8 +297,8 @@ html body {
 
 /* Text shadow utilities */
 .text-shadow-black {
-  text-shadow: 2px 1px 5px #000000d1;
+  text-shadow: 2px 1px 5px color-mix(in oklch, black 82%, transparent);
 }
 .text-shadow-white {
-  text-shadow: 2px 1px 5px #ffffffd1;
+  text-shadow: 2px 1px 5px color-mix(in oklch, white 82%, transparent);
 }
