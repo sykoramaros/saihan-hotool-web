@@ -109,24 +109,6 @@ html body {
   .app-container { animation: none; }
 }
 
-/* Carousel */
-.carousel-container {
-  width: auto;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  border-radius: 50rem;
-  border: 5vw solid var(--background);
-  box-shadow: 34vw -8vw 8px -13px var(--primary), -34vw 8vw 8px -13px var(--success);
-}
-
-.carousel-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-}
-
 /* Hide scrollbar for prices section */
 .hide-scrollbar {
   scrollbar-width: none;

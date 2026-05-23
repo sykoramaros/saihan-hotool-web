@@ -165,17 +165,15 @@ export const Home = () => {
       <section id="carousel-gallery" className="scroll-mt-20">
         <div className="flex justify-center items-center">
           <div className="w-full sm:w-11/12 relative">
-            <div className="carousel-container">
               <EmblaCarousel opts={{ loop: true }} plugins={[autoplay.current]} setApi={setCarouselApi}>
                 <CarouselContent className="-ml-0">
                   {gallery.map((img, i) => (
                     <CarouselItem key={i} className="pl-0">
-                      <img src={img.url} className="carousel-img" alt={img.alt} />
+                      <img src={img.url} className="w-full h-auto object-cover object-center" alt={img.alt} />
                     </CarouselItem>
                   ))}
                 </CarouselContent>
               </EmblaCarousel>
-            </div>
             <button
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full p-2 transition-colors"
               onClick={scrollPrev}
