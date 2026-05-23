@@ -12,11 +12,11 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@lexical/selection": "0.41.0",
     "@payloadcms/db-sqlite": "3.81.0",
     "@payloadcms/next": "3.81.0",
     "@payloadcms/richtext-lexical": "3.81.0",
     "@payloadcms/ui": "3.81.0",
-    "@lexical/selection": "0.41.0",
     "cross-env": "^7.0.3",
     "dotenv": "16.4.7",
     "graphql": "^16.8.1",

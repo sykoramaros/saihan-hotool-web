@@ -20,14 +20,13 @@ services:
       - ${NETWORK_NAME}
 
   caddy:
-    build:
-      context: ./infra
-      dockerfile: Dockerfile
+    image: caddy:2-alpine
     container_name: saihan_caddy
     restart: unless-stopped
     ports:
       - "2002:80"
     volumes:
+      - ${CADDY_CADDYFILE_PATH:-./infra/caddy/Caddyfile}:/etc/caddy/Caddyfile:ro
       - ./apps/frontend/dist:/usr/share/caddy:ro
       - caddy_data:/data
       - caddy_config:/config
