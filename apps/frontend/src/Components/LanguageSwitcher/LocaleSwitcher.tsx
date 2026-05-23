@@ -26,7 +26,7 @@ export const LocaleSwitcher = () => {
           <ChevronDown className="size-3.5 opacity-70" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="min-w-0 w-fit">
         {LANGUAGES.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
