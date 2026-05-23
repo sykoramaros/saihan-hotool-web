@@ -1,4 +1,4 @@
-.PHONY: start cms frontend
+.PHONY: start cms frontend clean
 
 start:
 	$(MAKE) -j2 cms frontend
@@ -8,3 +8,6 @@ cms:
 
 frontend:
 	bun run dev
+
+clean:
+	rm -rf apps/cms/.next
