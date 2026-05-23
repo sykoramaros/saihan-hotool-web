@@ -90,7 +90,7 @@ export const Navbar = () => {
           languages={languages}
           value={currentLocale}
           onChange={setCurrentLocale}
-          variant="bubble"
+          variant="default"
         />
       )}
 

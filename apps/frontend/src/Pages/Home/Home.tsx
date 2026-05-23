@@ -118,7 +118,7 @@ export const Home = () => {
       {/* Pricing sekce */}
       <section id="prices" className="scroll-mt-20 flex justify-center">
         <div
-          className="flex flex-nowrap gap-3 hide-scrollbar justify-center items-center bg-primary py-4 px-5 overflow-x-auto overflow-y-hidden w-screen"
+          className="flex flex-nowrap gap-3 hide-scrollbar justify-center items-center py-4 px-5 overflow-x-auto overflow-y-hidden w-screen"
           style={{ marginBottom: "13rem" }}
         >
           {cards.map((item) => (
