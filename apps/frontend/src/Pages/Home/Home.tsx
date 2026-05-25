@@ -9,6 +9,7 @@ import { Button } from "@/Components/ui/button"
 import { Separator } from "@/Components/ui/separator"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useOrderModal } from "@/context/OrderModalContext"
+import { useBaseUrl } from "@sykoramaros/marosh-components"
 
 interface Article {
   head: string | null
@@ -67,6 +68,7 @@ export const Home = () => {
   const scrollTo = useCallback((i: number) => carouselApi?.scrollTo(i), [carouselApi])
 
   const { open: openOrder } = useOrderModal()
+  const baseUrl = useBaseUrl()
 
   if (homeLoading || pricingLoading) return <Spinner />
   if (!homeData || !pricingData) return null
@@ -78,12 +80,19 @@ export const Home = () => {
   return (
     <div>
       {/* Hero */}
-      <div className="bg-primary/20 py-16 md:py-24 px-6 text-center" id="top-page">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4">{h.title}</h1>
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8">{h.subhead}</p>
-        <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8" onClick={() => openOrder()}>
-          {h.reserveButton}
-        </Button>
+      <div
+        id="top-page"
+        className="relative min-h-[92vh] flex items-center justify-center text-center px-6"
+        style={{ backgroundImage: `url('${baseUrl}/api/media/file/landscape.jpg')`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-bold mb-5 text-white drop-shadow-lg">{h.title}</h1>
+          <p className="text-xl md:text-2xl text-white/85 mb-10 drop-shadow">{h.subhead}</p>
+          <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-10 py-6 rounded-full shadow-xl" onClick={() => openOrder()}>
+            {h.reserveButton}
+          </Button>
+        </div>
       </div>
 
       {/* Info sekce */}
