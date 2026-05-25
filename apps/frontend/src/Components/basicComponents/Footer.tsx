@@ -41,7 +41,11 @@ function OrderForm() {
   const [step, setStep] = useState(1)
   const [room, setRoom] = useState("superior")
 
-  if (!data) return null
+  if (!data) return (
+    <DialogHeader>
+      <DialogTitle>Rezervace</DialogTitle>
+    </DialogHeader>
+  )
   const o = data.OrderModalContent
 
   const rooms = [
