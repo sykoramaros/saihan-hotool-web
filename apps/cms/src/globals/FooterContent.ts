@@ -7,6 +7,7 @@ export const FooterContent: GlobalConfig = {
   },
   fields: [
     { name: 'buttonTitle', type: 'text', localized: true },
+    { name: 'reservationLabel', type: 'text', localized: true },
     { name: 'name', type: 'text', localized: true },
     { name: 'addressLine1', type: 'text', localized: true },
     { name: 'addressLine2', type: 'text', localized: true },

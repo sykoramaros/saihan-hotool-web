@@ -46,6 +46,9 @@ export const HOME_CONTENT = gql`
           alt
         }
       }
+      reserveButton
+      pricingTitle
+      galleryTitle
       gallery {
         image {
           url
@@ -84,6 +87,7 @@ export const FOOTER_CONTENT = gql`
   query FooterContent($locale: LocaleInputType) {
     FooterContent(locale: $locale) {
       buttonTitle
+      reservationLabel
       name
       addressLine1
       addressLine2
@@ -109,6 +113,12 @@ export const ORDER_MODAL_CONTENT = gql`
       deluxe
       checkMeOut
       bookButton
+      contactStep
+      continueButton
+      backButton
+      economyPrice
+      superiorPrice
+      deluxePrice
     }
   }
 `

@@ -18,5 +18,11 @@ export const OrderModalContent: GlobalConfig = {
     { name: 'deluxe', type: 'text', localized: true },
     { name: 'checkMeOut', type: 'text', localized: true },
     { name: 'bookButton', type: 'text', localized: true },
+    { name: 'contactStep', type: 'text', localized: true },
+    { name: 'continueButton', type: 'text', localized: true },
+    { name: 'backButton', type: 'text', localized: true },
+    { name: 'economyPrice', type: 'text', localized: true },
+    { name: 'superiorPrice', type: 'text', localized: true },
+    { name: 'deluxePrice', type: 'text', localized: true },
   ],
 }

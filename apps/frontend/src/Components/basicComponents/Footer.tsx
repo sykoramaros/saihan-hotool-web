@@ -11,6 +11,7 @@ import { Separator } from "@/Components/ui/separator"
 interface FooterData {
   FooterContent: {
     buttonTitle: string | null
+    reservationLabel: string | null
     name: string | null
     addressLine1: string | null
     addressLine2: string | null
@@ -34,6 +35,12 @@ interface OrderData {
     deluxe: string | null
     checkMeOut: string | null
     bookButton: string | null
+    contactStep: string | null
+    continueButton: string | null
+    backButton: string | null
+    economyPrice: string | null
+    superiorPrice: string | null
+    deluxePrice: string | null
   }
 }
 
@@ -42,17 +49,13 @@ function OrderForm({ initialRoom }: { initialRoom?: string }) {
   const [step, setStep] = useState(1)
   const [room, setRoom] = useState(initialRoom ?? "economy")
 
-  if (!data) return (
-    <DialogHeader>
-      <DialogTitle>Rezervace</DialogTitle>
-    </DialogHeader>
-  )
+  if (!data) return null
   const o = data.OrderModalContent
 
   const rooms = [
-    { value: "economy", label: o.economy ?? "Economy", price: "od 75 $", img: "🏕️" },
-    { value: "superior", label: o.superior ?? "Superior", price: "od 105 $", img: "⛺" },
-    { value: "deluxe", label: o.deluxe ?? "Deluxe", price: "od 155 $", img: "🛕" },
+    { value: "economy", label: o.economy ?? "Economy", price: o.economyPrice ?? "", img: "🏕️" },
+    { value: "superior", label: o.superior ?? "Superior", price: o.superiorPrice ?? "", img: "⛺" },
+    { value: "deluxe", label: o.deluxe ?? "Deluxe", price: o.deluxePrice ?? "", img: "🛕" },
   ]
 
   return (
@@ -67,7 +70,7 @@ function OrderForm({ initialRoom }: { initialRoom?: string }) {
           <div className="flex-1 h-px bg-border mx-4" />
           <div className={`flex items-center gap-2 text-sm font-semibold ${step === 2 ? "text-primary" : "text-muted-foreground"}`}>
             <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 2 ? "bg-primary text-dark" : "bg-muted-foreground/30 text-muted-foreground"}`}>2</span>
-            Kontakt
+            {o.contactStep}
           </div>
         </div>
       </DialogHeader>
@@ -105,7 +108,7 @@ function OrderForm({ initialRoom }: { initialRoom?: string }) {
           </div>
 
           <Button className="w-full bg-primary text-dark hover:bg-primary/80 font-bold" onClick={() => setStep(2)}>
-            Pokračovat →
+            {o.continueButton} →
           </Button>
         </div>
       ) : (
@@ -134,7 +137,7 @@ function OrderForm({ initialRoom }: { initialRoom?: string }) {
           </div>
 
           <div className="flex gap-3">
-            <Button variant="outline" className="flex-1" onClick={() => setStep(1)}>← Zpět</Button>
+            <Button variant="outline" className="flex-1" onClick={() => setStep(1)}>← {o.backButton}</Button>
             <Button type="submit" className="flex-1 bg-primary text-dark hover:bg-primary/80 font-bold">{o.bookButton}</Button>
           </div>
         </div>
@@ -153,7 +156,7 @@ export const Footer = ({ orderOpen, setOrderOpen, orderRoom }: { orderOpen: bool
       <div className="bg-dark text-white">
         <div className="max-w-5xl mx-auto px-8 pt-12 pb-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-primary font-bold uppercase tracking-widest text-xs mb-4">Rezervace</p>
+            <p className="text-primary font-bold uppercase tracking-widest text-xs mb-4">{f.reservationLabel}</p>
             <p className="text-white/60 mb-6 text-sm leading-relaxed">
               {f.name} · {f.addressLine1} · {f.addressLine2}
             </p>

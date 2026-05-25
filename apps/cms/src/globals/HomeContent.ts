@@ -41,6 +41,9 @@ export const HomeContent: GlobalConfig = {
       type: 'group',
       fields: articleFields,
     },
+    { name: 'reserveButton', type: 'text', localized: true },
+    { name: 'pricingTitle', type: 'text', localized: true },
+    { name: 'galleryTitle', type: 'text', localized: true },
     {
       name: 'gallery',
       type: 'array',

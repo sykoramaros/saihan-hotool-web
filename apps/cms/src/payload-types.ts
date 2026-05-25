@@ -419,6 +419,9 @@ export interface HomeContent {
     paragraph?: string | null;
     image?: (number | null) | Media;
   };
+  reserveButton?: string | null;
+  pricingTitle?: string | null;
+  galleryTitle?: string | null;
   gallery?:
     | {
         image: number | Media;
@@ -435,6 +438,7 @@ export interface HomeContent {
 export interface FooterContent {
   id: number;
   buttonTitle?: string | null;
+  reservationLabel?: string | null;
   name?: string | null;
   addressLine1?: string | null;
   addressLine2?: string | null;
@@ -462,6 +466,12 @@ export interface OrderModalContent {
   deluxe?: string | null;
   checkMeOut?: string | null;
   bookButton?: string | null;
+  contactStep?: string | null;
+  continueButton?: string | null;
+  backButton?: string | null;
+  economyPrice?: string | null;
+  superiorPrice?: string | null;
+  deluxePrice?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -539,6 +549,9 @@ export interface HomeContentSelect<T extends boolean = true> {
         paragraph?: T;
         image?: T;
       };
+  reserveButton?: T;
+  pricingTitle?: T;
+  galleryTitle?: T;
   gallery?:
     | T
     | {
@@ -555,6 +568,7 @@ export interface HomeContentSelect<T extends boolean = true> {
  */
 export interface FooterContentSelect<T extends boolean = true> {
   buttonTitle?: T;
+  reservationLabel?: T;
   name?: T;
   addressLine1?: T;
   addressLine2?: T;
@@ -582,6 +596,12 @@ export interface OrderModalContentSelect<T extends boolean = true> {
   deluxe?: T;
   checkMeOut?: T;
   bookButton?: T;
+  contactStep?: T;
+  continueButton?: T;
+  backButton?: T;
+  economyPrice?: T;
+  superiorPrice?: T;
+  deluxePrice?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

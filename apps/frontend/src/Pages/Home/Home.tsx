@@ -20,6 +20,9 @@ interface HomeData {
   HomeContent: {
     title: string | null
     subhead: string | null
+    reserveButton: string | null
+    pricingTitle: string | null
+    galleryTitle: string | null
     firstArticle: Article | null
     secondArticle: Article | null
     thirdArticle: Article | null
@@ -79,7 +82,7 @@ export const Home = () => {
         <h1 className="text-5xl md:text-7xl font-bold mb-4">{h.title}</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8">{h.subhead}</p>
         <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8" onClick={() => openOrder()}>
-          Rezervovat
+          {h.reserveButton}
         </Button>
       </div>
 
@@ -112,7 +115,7 @@ export const Home = () => {
       {/* Pricing sekce */}
       <section id="prices" className="scroll-mt-20 bg-primary/10 py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">Ceník</h2>
+          <h2 className="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">{h.pricingTitle}</h2>
           <div className="flex flex-nowrap gap-4 hide-scrollbar overflow-x-auto pb-4 pr-6">
             {cards.map((item, idx) => (
               <div key={item.id} style={{ minWidth: "260px", maxWidth: "300px" }}>
@@ -157,7 +160,7 @@ export const Home = () => {
 
       {/* Carousel galerie */}
       <section id="carousel-gallery" className="scroll-mt-20 py-16 px-6 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">Galerie</h2>
+        <h2 className="text-3xl font-bold mb-8 border-l-4 border-primary pl-4">{h.galleryTitle}</h2>
         <div className="relative">
           <EmblaCarousel opts={{ loop: true }} plugins={[autoplay.current]} setApi={setCarouselApi}>
             <CarouselContent className="-ml-0">
