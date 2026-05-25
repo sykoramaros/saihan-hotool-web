@@ -63,7 +63,7 @@ apps/
     │   ├── globals/                     # NavbarContent, HomeContent, FooterContent, OrderModalContent, CookiesModalContent, LanguageSwitcherContent
     │   ├── collections/                 # Users, Media, HorizontalScrollingContainers
     │   └── app/                         # Next.js app dir (Payload-managed)
-    ├── data/                            # SQLite database (gitignored)
+    ├── data/cms.db                      # SQLite database (gitignored)
     └── .env                             # PAYLOAD_SECRET, DATABASE_URL (not in git)
 ```
 
