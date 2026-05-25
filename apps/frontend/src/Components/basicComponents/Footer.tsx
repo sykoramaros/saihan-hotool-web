@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { FOOTER_CONTENT, ORDER_MODAL_CONTENT } from "@/graphql/queries"
 import { Button } from "@/Components/ui/button"
