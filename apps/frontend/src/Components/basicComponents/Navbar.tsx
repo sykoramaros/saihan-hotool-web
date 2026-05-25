@@ -55,7 +55,7 @@ export const Navbar = () => {
           <li key={label}>
             <a
               href="#"
-              className="text-foreground no-underline hover:text-primary transition-colors pb-0.5 border-b-2 border-transparent hover:border-primary"
+              className="text-foreground no-underline hover:text-primary transition-colors pb-0.5 border-b-2 border-transparent hover:border-primary whitespace-nowrap"
               onClick={onClick}
             >
               {label}

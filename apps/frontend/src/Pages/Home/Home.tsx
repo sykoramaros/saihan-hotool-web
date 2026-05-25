@@ -118,7 +118,7 @@ export const Home = () => {
           <h2 className="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">{h.pricingTitle}</h2>
           <div className="flex flex-nowrap gap-4 hide-scrollbar overflow-x-auto pb-4 pr-6">
             {cards.map((item, idx) => (
-              <div key={item.id} style={{ minWidth: "260px", maxWidth: "300px" }}>
+              <div key={item.id} style={{ minWidth: "220px", maxWidth: "300px" }}>
                 <Card className="overflow-hidden flex flex-col gap-0 py-0 shadow-md">
                   {item.image && (
                     <img src={item.image.url} alt={item.image.alt} className="w-full object-cover h-44" />
