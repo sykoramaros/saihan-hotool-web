@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { FOOTER_CONTENT, ORDER_MODAL_CONTENT } from "@/graphql/queries"
 import { Button } from "@/Components/ui/button"
@@ -139,8 +138,7 @@ function OrderForm() {
   )
 }
 
-export const Footer = () => {
-  const [showOrder, setShowOrder] = useState(false)
+export const Footer = ({ orderOpen, setOrderOpen }: { orderOpen: boolean; setOrderOpen: (v: boolean) => void }) => {
   const { data } = useLocaleQuery<FooterData>(FOOTER_CONTENT)
   if (!data) return null
   const f = data.FooterContent
@@ -157,7 +155,7 @@ export const Footer = () => {
             <Button
               size="lg"
               className="bg-primary text-dark hover:bg-primary/80 font-bold text-lg px-8 py-6 rounded-xl"
-              onClick={() => setShowOrder(true)}
+              onClick={() => setOrderOpen(true)}
             >
               {f.buttonTitle}
             </Button>
@@ -180,8 +178,8 @@ export const Footer = () => {
         </div>
       </div>
 
-      <Dialog open={showOrder} onOpenChange={(open) => { setShowOrder(open) }}>
-        <DialogContent className="sm:max-w-lg" onInteractOutside={() => setShowOrder(false)}>
+      <Dialog open={orderOpen} onOpenChange={(open) => { setOrderOpen(open) }}>
+        <DialogContent className="sm:max-w-lg" onInteractOutside={() => setOrderOpen(false)}>
           <OrderForm />
         </DialogContent>
       </Dialog>

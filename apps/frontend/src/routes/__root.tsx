@@ -7,6 +7,7 @@ import { COOKIES_MODAL_CONTENT } from "@/graphql/queries"
 import { Button } from "@/Components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/Components/ui/dialog"
 import { Separator } from "@/Components/ui/separator"
+import { OrderModalProvider } from "@/context/OrderModalContext"
 
 interface CookiesData {
   CookiesModalContent: {
@@ -48,6 +49,7 @@ function CookiesBanner({ onClose }: { onClose: () => void }) {
 
 function Root() {
   const [cookiesOpen, setCookiesOpen] = useState(false)
+  const [orderOpen, setOrderOpen] = useState(false)
 
   useEffect(() => {
     const accepted = localStorage.getItem("cookiesAccepted")
@@ -59,21 +61,21 @@ function Root() {
   }, [])
 
   return (
-    <>
-<div className="sticky top-0 z-50">
+    <OrderModalProvider onOpen={() => setOrderOpen(true)}>
+      <div className="sticky top-0 z-50">
         <Navbar />
       </div>
       <div style={{ minHeight: "100vh" }}>
         <Outlet />
       </div>
       <div className="mt-16 md:mt-24" id="contacts">
-        <Footer />
+        <Footer orderOpen={orderOpen} setOrderOpen={setOrderOpen} />
       </div>
       <Dialog open={cookiesOpen} onOpenChange={(open) => !open && setCookiesOpen(false)}>
         <DialogContent showCloseButton={false} className="overflow-hidden p-0 rounded-[3rem_3rem_0_0] sm:rounded-[10rem_10rem_0_0] sm:max-w-[500px] md:max-w-[700px]">
           <CookiesBanner onClose={() => setCookiesOpen(false)} />
         </DialogContent>
       </Dialog>
-    </>
+    </OrderModalProvider>
   )
 }

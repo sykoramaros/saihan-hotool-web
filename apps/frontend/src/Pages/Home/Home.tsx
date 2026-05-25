@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Componen
 import { Button } from "@/Components/ui/button"
 import { Separator } from "@/Components/ui/separator"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useOrderModal } from "@/context/OrderModalContext"
 
 interface Article {
   head: string | null
@@ -61,6 +62,8 @@ export const Home = () => {
   const scrollNext = useCallback(() => carouselApi?.scrollNext(), [carouselApi])
   const scrollTo = useCallback((i: number) => carouselApi?.scrollTo(i), [carouselApi])
 
+  const { open: openOrder } = useOrderModal()
+
   if (homeLoading || pricingLoading) return <Spinner />
   if (!homeData || !pricingData) return null
 
@@ -74,7 +77,7 @@ export const Home = () => {
       <div className="bg-primary/20 py-16 md:py-24 px-6 text-center" id="top-page">
         <h1 className="text-5xl md:text-7xl font-bold mb-4">{h.title}</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8">{h.subhead}</p>
-        <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8">
+        <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8" onClick={openOrder}>
           Rezervovat
         </Button>
       </div>
@@ -142,7 +145,7 @@ export const Home = () => {
                   </CardContent>
                   <Separator />
                   <CardFooter className="px-4 py-3">
-                    <Button variant="success" className="w-full">{item.bookButton}</Button>
+                    <Button variant="success" className="w-full" onClick={openOrder}>{item.bookButton}</Button>
                   </CardFooter>
                 </Card>
               </div>
