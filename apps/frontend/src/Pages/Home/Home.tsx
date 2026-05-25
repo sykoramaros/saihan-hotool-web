@@ -78,7 +78,7 @@ export const Home = () => {
       <div className="bg-primary/20 py-16 md:py-24 px-6 text-center" id="top-page">
         <h1 className="text-5xl md:text-7xl font-bold mb-4">{h.title}</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8">{h.subhead}</p>
-        <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8" onClick={openOrder}>
+        <Button size="lg" className="bg-primary text-foreground hover:bg-primary/80 text-lg px-8" onClick={() => openOrder()}>
           Rezervovat
         </Button>
       </div>
