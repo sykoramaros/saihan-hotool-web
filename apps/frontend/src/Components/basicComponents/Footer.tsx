@@ -6,7 +6,6 @@ import { Checkbox } from "@/Components/ui/checkbox"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/Components/ui/dialog"
 import { Input } from "@/Components/ui/input"
 import { Label } from "@/Components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
 import { Separator } from "@/Components/ui/separator"
 
 interface FooterData {
@@ -40,62 +39,102 @@ interface OrderData {
 
 function OrderForm() {
   const { data } = useLocaleQuery<OrderData>(ORDER_MODAL_CONTENT)
+  const [step, setStep] = useState(1)
+  const [room, setRoom] = useState("superior")
+
   if (!data) return null
   const o = data.OrderModalContent
+
+  const rooms = [
+    { value: "economy", label: o.economy ?? "Economy", price: "od 75 $", img: "🏕️" },
+    { value: "superior", label: o.superior ?? "Superior", price: "od 105 $", img: "⛺" },
+    { value: "deluxe", label: o.deluxe ?? "Deluxe", price: "od 155 $", img: "🛕" },
+  ]
+
   return (
     <>
-      <DialogHeader>
-        <DialogTitle className="text-xl">{o.bookButton}</DialogTitle>
+      {/* Progress */}
+      <DialogHeader className="pb-0">
+        <div className="flex items-center gap-0 bg-muted/40 rounded-xl px-6 py-3 mb-2">
+          <div className={`flex items-center gap-2 text-sm font-semibold ${step === 1 ? "text-primary" : "text-muted-foreground"}`}>
+            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 1 ? "bg-primary text-dark" : "bg-muted-foreground/30 text-muted-foreground"}`}>1</span>
+            <DialogTitle className="text-sm font-semibold">{o.roomType ?? "Výběr jurty"}</DialogTitle>
+          </div>
+          <div className="flex-1 h-px bg-border mx-4" />
+          <div className={`flex items-center gap-2 text-sm font-semibold ${step === 2 ? "text-primary" : "text-muted-foreground"}`}>
+            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${step === 2 ? "bg-primary text-dark" : "bg-muted-foreground/30 text-muted-foreground"}`}>2</span>
+            Kontakt
+          </div>
+        </div>
       </DialogHeader>
+
       <Separator />
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-        <div className="col-span-full space-y-1.5">
-          <Label htmlFor="email">{o.email}</Label>
-          <Input type="email" id="email" placeholder="@" />
-        </div>
-        <div className="col-span-full space-y-1.5">
-          <Label htmlFor="address">{o.address}</Label>
-          <Input type="text" id="address" placeholder={o.address ?? ""} />
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="city">{o.city}</Label>
-          <Input type="text" id="city" placeholder={o.city ?? ""} />
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="country">{o.country}</Label>
-          <Input type="text" id="country" placeholder={o.country ?? ""} />
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="checkin">{o.checkInDate}</Label>
-          <Input type="date" id="checkin" />
-        </div>
-        <div className="space-y-1.5">
-          <Label htmlFor="checkout">{o.checkOutDate}</Label>
-          <Input type="date" id="checkout" />
-        </div>
-        <div className="col-span-full space-y-2">
-          <Label>{o.roomType}</Label>
-          <RadioGroup defaultValue="economy" className="gap-2">
-            {[
-              { value: "economy", label: o.economy },
-              { value: "superior", label: o.superior },
-              { value: "deluxe", label: o.deluxe },
-            ].map(({ value, label }) => (
-              <div key={value} className="flex items-center gap-3 border rounded-md px-3 py-2 hover:bg-muted/50 transition-colors">
-                <RadioGroupItem value={value} id={value} />
-                <Label htmlFor={value} className="cursor-pointer font-normal">{label}</Label>
-              </div>
+
+      {step === 1 ? (
+        <div className="pt-2">
+          {/* Room cards */}
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            {rooms.map(r => (
+              <button
+                key={r.value}
+                type="button"
+                onClick={() => setRoom(r.value)}
+                className={`rounded-xl border-2 p-4 text-center transition-all cursor-pointer ${room === r.value ? "border-primary bg-primary/10" : "border-border hover:border-primary/40"}`}
+              >
+                <div className="text-3xl mb-2">{r.img}</div>
+                <div className="font-bold text-sm">{r.label}</div>
+                <div className="text-xs text-muted-foreground">{r.price}</div>
+              </button>
             ))}
-          </RadioGroup>
+          </div>
+
+          {/* Dates */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="space-y-1.5">
+              <Label htmlFor="checkin">{o.checkInDate}</Label>
+              <Input type="date" id="checkin" />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="checkout">{o.checkOutDate}</Label>
+              <Input type="date" id="checkout" />
+            </div>
+          </div>
+
+          <Button className="w-full bg-primary text-dark hover:bg-primary/80 font-bold" onClick={() => setStep(2)}>
+            Pokračovat →
+          </Button>
         </div>
-        <div className="col-span-full flex items-center gap-2">
-          <Checkbox id="terms" />
-          <Label htmlFor="terms" className="font-normal cursor-pointer">{o.checkMeOut}</Label>
+      ) : (
+        <div className="pt-2">
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="col-span-full space-y-1.5">
+              <Label htmlFor="email">{o.email}</Label>
+              <Input type="email" id="email" placeholder="@" />
+            </div>
+            <div className="col-span-full space-y-1.5">
+              <Label htmlFor="address">{o.address}</Label>
+              <Input type="text" id="address" placeholder={o.address ?? ""} />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="city">{o.city}</Label>
+              <Input type="text" id="city" placeholder={o.city ?? ""} />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="country">{o.country}</Label>
+              <Input type="text" id="country" placeholder={o.country ?? ""} />
+            </div>
+            <div className="col-span-full flex items-center gap-2">
+              <Checkbox id="terms" />
+              <Label htmlFor="terms" className="font-normal cursor-pointer">{o.checkMeOut}</Label>
+            </div>
+          </div>
+
+          <div className="flex gap-3">
+            <Button variant="outline" className="flex-1" onClick={() => setStep(1)}>← Zpět</Button>
+            <Button type="submit" className="flex-1 bg-primary text-dark hover:bg-primary/80 font-bold">{o.bookButton}</Button>
+          </div>
         </div>
-        <div className="col-span-full">
-          <Button type="submit" variant="success" className="w-full">{o.bookButton}</Button>
-        </div>
-      </form>
+      )}
     </>
   )
 }
@@ -141,8 +180,8 @@ export const Footer = () => {
         </div>
       </div>
 
-      <Dialog open={showOrder} onOpenChange={setShowOrder}>
-        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+      <Dialog open={showOrder} onOpenChange={(open) => { setShowOrder(open) }}>
+        <DialogContent className="sm:max-w-lg" onInteractOutside={() => setShowOrder(false)}>
           <OrderForm />
         </DialogContent>
       </Dialog>
