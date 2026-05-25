@@ -63,6 +63,7 @@ export const Home = () => {
   const scrollTo = useCallback((i: number) => carouselApi?.scrollTo(i), [carouselApi])
 
   const { open: openOrder } = useOrderModal()
+  const roomValues = ["economy", "superior", "deluxe"]
 
   if (homeLoading || pricingLoading) return <Spinner />
   if (!homeData || !pricingData) return null
@@ -113,7 +114,7 @@ export const Home = () => {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">Ceník</h2>
           <div className="flex flex-nowrap gap-4 hide-scrollbar overflow-x-auto pb-4 pr-6">
-            {cards.map((item) => (
+            {cards.map((item, idx) => (
               <div key={item.id} style={{ minWidth: "260px", maxWidth: "300px" }}>
                 <Card className="overflow-hidden flex flex-col gap-0 py-0 shadow-md">
                   {item.image && (
@@ -145,7 +146,7 @@ export const Home = () => {
                   </CardContent>
                   <Separator />
                   <CardFooter className="px-4 py-3">
-                    <Button variant="success" className="w-full" onClick={openOrder}>{item.bookButton}</Button>
+                    <Button variant="success" className="w-full" onClick={() => openOrder(roomValues[idx])}>{item.bookButton}</Button>
                   </CardFooter>
                 </Card>
               </div>

@@ -37,10 +37,10 @@ interface OrderData {
   }
 }
 
-function OrderForm() {
+function OrderForm({ initialRoom }: { initialRoom?: string }) {
   const { data } = useLocaleQuery<OrderData>(ORDER_MODAL_CONTENT)
   const [step, setStep] = useState(1)
-  const [room, setRoom] = useState("superior")
+  const [room, setRoom] = useState(initialRoom ?? "economy")
 
   if (!data) return (
     <DialogHeader>
@@ -143,7 +143,7 @@ function OrderForm() {
   )
 }
 
-export const Footer = ({ orderOpen, setOrderOpen }: { orderOpen: boolean; setOrderOpen: (v: boolean) => void }) => {
+export const Footer = ({ orderOpen, setOrderOpen, orderRoom }: { orderOpen: boolean; setOrderOpen: (v: boolean) => void; orderRoom?: string }) => {
   const { data } = useLocaleQuery<FooterData>(FOOTER_CONTENT)
   if (!data) return null
   const f = data.FooterContent
@@ -185,7 +185,7 @@ export const Footer = ({ orderOpen, setOrderOpen }: { orderOpen: boolean; setOrd
 
       <Dialog open={orderOpen} onOpenChange={(open) => { setOrderOpen(open) }}>
         <DialogContent className="sm:max-w-lg" onInteractOutside={() => setOrderOpen(false)}>
-          <OrderForm />
+          <OrderForm key={`${orderRoom}-${orderOpen}`} initialRoom={orderRoom} />
         </DialogContent>
       </Dialog>
     </>
