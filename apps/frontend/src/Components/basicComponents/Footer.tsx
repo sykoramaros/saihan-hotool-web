@@ -146,7 +146,7 @@ function OrderForm({ initialRoom }: { initialRoom?: string }) {
   )
 }
 
-export const Footer = ({ orderOpen, setOrderOpen, orderRoom }: { orderOpen: boolean; setOrderOpen: (v: boolean) => void; orderRoom?: string }) => {
+export const Footer = ({ orderOpen, setOrderOpen, orderRoom, orderKey }: { orderOpen: boolean; setOrderOpen: (v: boolean) => void; orderRoom?: string; orderKey: number }) => {
   const { data } = useLocaleQuery<FooterData>(FOOTER_CONTENT)
   if (!data) return null
   const f = data.FooterContent
@@ -180,15 +180,15 @@ export const Footer = ({ orderOpen, setOrderOpen, orderRoom }: { orderOpen: bool
         </div>
         <div className="border-t border-white/10 max-w-5xl mx-auto px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="text-white/40 text-xs">{f.copyright} · {f.allRights}</p>
-          <a href="#" className="text-white/40 no-underline hover:text-primary text-xs transition-colors">
+          <button className="text-white/40 bg-transparent border-0 p-0 hover:text-primary text-xs transition-colors cursor-pointer">
             {f.dataProtections}
-          </a>
+          </button>
         </div>
       </div>
 
       <Dialog open={orderOpen} onOpenChange={(open) => { setOrderOpen(open) }}>
         <DialogContent className="sm:max-w-lg" onInteractOutside={() => setOrderOpen(false)}>
-          <OrderForm key={`${orderRoom}-${orderOpen}`} initialRoom={orderRoom} />
+          <OrderForm key={orderKey} initialRoom={orderRoom} />
         </DialogContent>
       </Dialog>
     </>

@@ -1,5 +1,5 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Navbar } from "@/Components/basicComponents/Navbar"
 import { Footer } from "@/Components/basicComponents/Footer"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
@@ -51,18 +51,29 @@ function Root() {
   const [cookiesOpen, setCookiesOpen] = useState(false)
   const [orderOpen, setOrderOpen] = useState(false)
   const [orderRoom, setOrderRoom] = useState<string | undefined>(undefined)
+  const [orderKey, setOrderKey] = useState(0)
 
   useEffect(() => {
     const accepted = localStorage.getItem("cookiesAccepted")
     const now = Date.now()
     if (!accepted || now - parseInt(accepted) > 7 * 24 * 60 * 60 * 1000) {
       setCookiesOpen(true)
-      localStorage.setItem("cookiesAccepted", now.toString())
     }
   }, [])
 
+  const handleCookiesClose = useCallback(() => {
+    localStorage.setItem("cookiesAccepted", Date.now().toString())
+    setCookiesOpen(false)
+  }, [])
+
+  const handleOpenOrder = useCallback((room?: string) => {
+    setOrderRoom(room)
+    setOrderKey((k) => k + 1)
+    setOrderOpen(true)
+  }, [])
+
   return (
-    <OrderModalProvider onOpen={(room) => { setOrderRoom(room); setOrderOpen(true) }}>
+    <OrderModalProvider onOpen={handleOpenOrder}>
       <div className="sticky top-0 z-50">
         <Navbar />
       </div>
@@ -70,11 +81,14 @@ function Root() {
         <Outlet />
       </div>
       <div className="mt-16 md:mt-24" id="contacts">
-        <Footer orderOpen={orderOpen} setOrderOpen={setOrderOpen} orderRoom={orderRoom} />
+        <Footer orderOpen={orderOpen} setOrderOpen={setOrderOpen} orderRoom={orderRoom} orderKey={orderKey} />
       </div>
-      <Dialog open={cookiesOpen} onOpenChange={(open) => !open && setCookiesOpen(false)}>
-        <DialogContent showCloseButton={false} className="overflow-hidden p-0 rounded-[3rem_3rem_0_0] sm:rounded-[10rem_10rem_0_0] sm:max-w-[500px] md:max-w-[700px]">
-          <CookiesBanner onClose={() => setCookiesOpen(false)} />
+      <Dialog open={cookiesOpen} onOpenChange={(open) => !open && handleCookiesClose()}>
+        <DialogContent
+          showCloseButton={false}
+          className="overflow-y-auto max-h-[90vh] p-0 rounded-3xl sm:max-w-[500px] md:max-w-[700px]"
+        >
+          <CookiesBanner onClose={handleCookiesClose} />
         </DialogContent>
       </Dialog>
     </OrderModalProvider>

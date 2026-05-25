@@ -64,6 +64,7 @@ export const PRICING_CONTENT = gql`
     HorizontalScrollingContainers(locale: $locale) {
       docs {
         id
+        roomKey
         image {
           url
           alt

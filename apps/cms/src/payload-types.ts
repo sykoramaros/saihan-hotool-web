@@ -183,6 +183,7 @@ export interface Media {
  */
 export interface HorizontalScrollingContainer {
   id: number;
+  roomKey: 'economy' | 'superior' | 'deluxe';
   image: number | Media;
   title: string;
   tablePersonTitle?: string | null;
@@ -323,6 +324,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "horizontal-scrolling-containers_select".
  */
 export interface HorizontalScrollingContainersSelect<T extends boolean = true> {
+  roomKey?: T;
   image?: T;
   title?: T;
   tablePersonTitle?: T;

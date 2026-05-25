@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Menu } from "lucide-react"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { NAVBAR_CONTENT } from "@/graphql/queries"
@@ -28,15 +29,23 @@ const scrollTo = (id: string, offset = 0) => (e: React.MouseEvent) => {
 
 export const Navbar = () => {
   const { data } = useLocaleQuery<NavbarData>(NAVBAR_CONTENT)
+  const [sheetOpen, setSheetOpen] = useState(false)
+
   if (!data) return null
   const { NavbarContent } = data
+
   const navItems = [
-    { label: NavbarContent.home, onClick: scrollTo("top") },
-    { label: NavbarContent.info, onClick: scrollTo("info", 80) },
-    { label: NavbarContent.pricing, onClick: scrollTo("prices", 80) },
-    { label: NavbarContent.gallery, onClick: scrollTo("carousel-gallery", 80) },
-    { label: NavbarContent.contact, onClick: scrollTo("contacts", 80) },
+    { id: "home",    label: NavbarContent.home,    onClick: scrollTo("top") },
+    { id: "info",    label: NavbarContent.info,    onClick: scrollTo("info", 80) },
+    { id: "pricing", label: NavbarContent.pricing, onClick: scrollTo("prices", 80) },
+    { id: "gallery", label: NavbarContent.gallery, onClick: scrollTo("carousel-gallery", 80) },
+    { id: "contact", label: NavbarContent.contact, onClick: scrollTo("contacts", 80) },
   ]
+
+  const handleMobileClick = (onClick: (e: React.MouseEvent) => void) => (e: React.MouseEvent) => {
+    setSheetOpen(false)
+    onClick(e)
+  }
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm shadow-sm border-b border-primary/30 flex items-center w-full py-2 px-4 relative">
@@ -51,8 +60,8 @@ export const Navbar = () => {
       )}
 
       <ul className="hidden md:flex gap-6 items-center text-lg font-medium absolute left-1/2 -translate-x-1/2">
-        {navItems.map(({ label, onClick }) => (
-          <li key={label}>
+        {navItems.map(({ id, label, onClick }) => (
+          <li key={id}>
             <a
               href="#"
               className="text-foreground no-underline hover:text-primary transition-colors pb-0.5 border-b-2 border-transparent hover:border-primary whitespace-nowrap"
@@ -66,7 +75,7 @@ export const Navbar = () => {
 
       <LocaleSwitcher className="ml-auto [&_button]:text-foreground [&_button]:hover:bg-primary/10" />
 
-      <Sheet>
+      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="md:hidden ml-2 text-foreground hover:bg-primary/10" aria-label="Menu">
             <Menu className="size-7" />
@@ -78,8 +87,13 @@ export const Navbar = () => {
           </SheetHeader>
           <Separator className="bg-white/30 mb-4" />
           <nav className="flex flex-col gap-1">
-            {navItems.map(({ label, onClick }) => (
-              <a key={label} href="#" className="text-white text-xl font-medium no-underline px-2 py-3 rounded-md hover:bg-white/10 transition-colors" onClick={onClick}>
+            {navItems.map(({ id, label, onClick }) => (
+              <a
+                key={id}
+                href="#"
+                className="text-white text-xl font-medium no-underline px-2 py-3 rounded-md hover:bg-white/10 transition-colors"
+                onClick={handleMobileClick(onClick)}
+              >
                 {label}
               </a>
             ))}

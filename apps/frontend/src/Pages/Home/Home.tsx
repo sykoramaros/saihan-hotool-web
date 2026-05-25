@@ -32,6 +32,7 @@ interface HomeData {
 
 interface PriceCard {
   id: string
+  roomKey: string
   image: { url: string; alt: string } | null
   title: string | null
   tablePersonTitle: string | null
@@ -66,7 +67,6 @@ export const Home = () => {
   const scrollTo = useCallback((i: number) => carouselApi?.scrollTo(i), [carouselApi])
 
   const { open: openOrder } = useOrderModal()
-  const roomValues = ["economy", "superior", "deluxe"]
 
   if (homeLoading || pricingLoading) return <Spinner />
   if (!homeData || !pricingData) return null
@@ -89,21 +89,21 @@ export const Home = () => {
       {/* Info sekce */}
       <section id="info" className="scroll-mt-20 py-16 px-6 max-w-5xl mx-auto">
         <div className="flex flex-col gap-16">
-          {[h.firstArticle, h.secondArticle, h.thirdArticle].filter(Boolean).map((a, i) => (
+          {[h.firstArticle, h.secondArticle, h.thirdArticle].filter((a): a is Article => a !== null).map((a, i) => (
             <div
               key={i}
               className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
             >
               <div>
-                {a!.head && (
-                  <h3 className="text-2xl font-bold mb-3 border-l-4 border-primary pl-4">{a!.head}</h3>
+                {a.head && (
+                  <h3 className="text-2xl font-bold mb-3 border-l-4 border-primary pl-4">{a.head}</h3>
                 )}
-                <p className="text-lg leading-relaxed text-muted-foreground">{a!.paragraph}</p>
+                <p className="text-lg leading-relaxed text-muted-foreground">{a.paragraph}</p>
               </div>
-              {a!.image && (
+              {a.image && (
                 <img
-                  src={a!.image.url}
-                  alt={a!.image.alt}
+                  src={a.image.url}
+                  alt={a.image.alt}
                   className="rounded-2xl object-cover w-full max-h-72 shadow-lg"
                 />
               )}
@@ -117,7 +117,7 @@ export const Home = () => {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-10 border-l-4 border-primary pl-4">{h.pricingTitle}</h2>
           <div className="flex flex-nowrap gap-4 hide-scrollbar overflow-x-auto pb-4 pr-6">
-            {cards.map((item, idx) => (
+            {cards.map((item) => (
               <div key={item.id} style={{ minWidth: "220px", maxWidth: "300px" }}>
                 <Card className="overflow-hidden flex flex-col gap-0 py-0 shadow-md">
                   {item.image && (
@@ -149,7 +149,7 @@ export const Home = () => {
                   </CardContent>
                   <Separator />
                   <CardFooter className="px-4 py-3">
-                    <Button variant="success" className="w-full" onClick={() => openOrder(roomValues[idx])}>{item.bookButton}</Button>
+                    <Button variant="success" className="w-full" onClick={() => openOrder(item.roomKey)}>{item.bookButton}</Button>
                   </CardFooter>
                 </Card>
               </div>

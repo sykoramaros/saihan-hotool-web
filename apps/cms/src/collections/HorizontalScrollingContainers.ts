@@ -10,6 +10,12 @@ export const HorizontalScrollingContainers: CollectionConfig = {
   },
   fields: [
     {
+      name: 'roomKey',
+      type: 'select',
+      required: true,
+      options: ['economy', 'superior', 'deluxe'],
+    },
+    {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
