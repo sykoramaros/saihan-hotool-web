@@ -1,11 +1,10 @@
 {
   "name": "saihan-hotool",
   "version": "0.1.0",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
   "private": true,
-  "type": "module",
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
     "dev": "cd apps/frontend && bun run dev",
     "dev:cms": "cd apps/cms && bun run dev",
@@ -13,10 +12,11 @@
     "preview": "cd apps/frontend && bun run preview",
     "deploy:frontend": "bun run build && rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/docker/saihan_hotool/apps/frontend/dist/"
   },
-  "devDependencies": {
-    "concurrently": "^9.2.1"
-  },
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
   "dependencies": {
-    "react-country-flag": "^3.1.0"
+    "flag-icons": "^7.5.0"
   }
 }

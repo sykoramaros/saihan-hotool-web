@@ -10,6 +10,7 @@ import {
 } from "@sykoramaros/marosh-components"
 import saihanThemeJson from "@/themes/saihan-theme.json"
 import "./index.css"
+import "flag-icons/css/flag-icons.min.css"
 
 const CMS_URL = import.meta.env.VITE_CMS_URL ?? "http://localhost:3000"
 
