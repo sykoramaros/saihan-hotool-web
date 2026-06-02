@@ -12,7 +12,7 @@ import saihanThemeJson from "@/themes/saihan-theme.json"
 import "./index.css"
 import "flag-icons/css/flag-icons.min.css"
 
-const CMS_URL = import.meta.env.VITE_CMS_URL ?? "http://localhost:3000"
+const CMS_URL = import.meta.env.VITE_CMS_URL
 
 const themes: Record<string, ThemeConfig> = {
   "saihan-theme": saihanThemeJson as unknown as ThemeConfig,
