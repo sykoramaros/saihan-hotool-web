@@ -3,6 +3,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { useLocaleQuery } from "@/hooks/use-locale-query"
 import { HOME_CONTENT, PRICING_CONTENT } from "@/graphql/queries"
 import { Spinner } from "@/Components/ui/spinner"
+import { Button } from "@/components/ui/button"
 import { Carousel as EmblaCarousel, CarouselContent, CarouselItem, type CarouselApi } from "@/Components/ui/carousel"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card"
 import { Button } from "@/Components/ui/button"
@@ -182,27 +183,33 @@ export const Home = () => {
               ))}
             </CarouselContent>
           </EmblaCarousel>
-          <button
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full p-2 transition-colors"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full"
             onClick={scrollPrev}
             aria-label="Previous"
           >
             <ChevronLeft className="size-6" />
-          </button>
-          <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full p-2 transition-colors"
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full"
             onClick={scrollNext}
             aria-label="Next"
           >
             <ChevronRight className="size-6" />
-          </button>
+          </Button>
           <div className="flex justify-center gap-2 mt-4">
             {Array.from({ length: slideCount }).map((_, i) => (
-              <button
+              <Button
                 key={i}
+                variant="ghost"
+                size="icon"
                 onClick={() => scrollTo(i)}
                 aria-label={`Slide ${i + 1}`}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${i === currentSlide ? "bg-primary" : "bg-primary/30"}`}
+                className={`w-2.5 h-2.5 rounded-full p-0 min-w-0 transition-colors ${i === currentSlide ? "bg-primary hover:bg-primary" : "bg-primary/30 hover:bg-primary/50"}`}
               />
             ))}
           </div>
