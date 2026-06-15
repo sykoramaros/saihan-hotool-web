@@ -5,6 +5,12 @@ import tailwindcss from "@tailwindcss/vite"
 import path from "path"
 
 export default defineConfig({
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./src/test-setup.ts"],
+    globals: true,
+    exclude: ["**/node_modules/**", "**/e2e/**"],
+  },
   plugins: [tanstackRouter(), tailwindcss(), react()],
   server: { port: 5175, open: true, proxy: { "/api": "http://localhost:3000" } },
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },

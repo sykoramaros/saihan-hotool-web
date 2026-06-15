@@ -10,7 +10,8 @@
     "dev:cms": "cd apps/cms && bun run dev",
     "build": "cd apps/frontend && bun run build",
     "preview": "cd apps/frontend && bun run preview",
-    "deploy:frontend": "bun run build && rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/docker/saihan_hotool/apps/frontend/dist/"
+    "deploy:frontend": "bun run build && rsync -avz --delete apps/frontend/dist/ mac-mini-server:/var/docker/saihan_hotool/apps/frontend/dist/",
+    "test-and-deploy": "./test-and-deploy.sh"
   },
   "type": "module",
   "workspaces": [
